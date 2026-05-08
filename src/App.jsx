@@ -512,24 +512,45 @@ export default function App() {
             <h2 className="display section-display mb-12">
               Fifteen years deep <em className="ital">into the work</em>.
             </h2>
-            <div
-              className="grid md:grid-cols-2 gap-10 text-lg"
-              style={{ color: 'var(--ink-soft)' }}
-            >
-              <p>
-                I founded Khemo IT Solutions in 2008 and have spent the years since shipping
-                software for South African organisations: state agencies, listed groups, law firms,
-                and founder-led businesses. The work spans SharePoint rollouts, Power Platform
-                builds, custom web and mobile apps, API integrations, and — increasingly — AI-driven
-                automation.
-              </p>
-              <p>
-                Most recently I led digital-transformation work at{' '}
-                <strong style={{ color: 'var(--ink)' }}>Goscor Group</strong> across 961 employees:
-                four production HR pipelines on JotForm and SharePoint rollouts across divisions.
-                I'm now full-time on Khemo, while open to senior contract or specialist roles for
-                the right fit.
-              </p>
+            
+            <div className="grid md:grid-cols-12 gap-10 items-start mb-16">
+              <div className="col-span-12 md:col-span-5 mb-8 md:mb-0">
+                <div className="relative">
+                  <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-[var(--rule)]">
+                    <img 
+                      src="/Khwezi-Flatela.JPG" 
+                      alt="Khwezi Flatela" 
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    />
+                  </div>
+                  {/* Decorative element */}
+                  <div 
+                    className="absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2 border-[var(--sienna)] rounded-br-2xl opacity-40"
+                  />
+                </div>
+              </div>
+              
+              <div className="col-span-12 md:col-span-7">
+                <div
+                  className="space-y-6 text-lg"
+                  style={{ color: 'var(--ink-soft)' }}
+                >
+                  <p>
+                    I founded Khemo IT Solutions in 2008 and have spent the years since shipping
+                    software for South African organisations: state agencies, listed groups, law firms,
+                    and founder-led businesses. The work spans SharePoint rollouts, Power Platform
+                    builds, custom web and mobile apps, API integrations, and — increasingly — AI-driven
+                    automation.
+                  </p>
+                  <p>
+                    Most recently I led digital-transformation work at{' '}
+                    <strong style={{ color: 'var(--ink)' }}>Goscor Group</strong> across 961 employees:
+                    four production HR pipelines on JotForm and SharePoint rollouts across divisions.
+                    I'm now full-time on Khemo, while open to senior contract or specialist roles for
+                    the right fit.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div
