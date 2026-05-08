@@ -10,10 +10,129 @@ import {
   Twitter,
   Download,
   Check,
+  Layers,
+  Smartphone,
+  Cpu,
+  Zap,
 } from 'lucide-react';
+
+const AutomationCalculator = () => {
+  const [hours, setHours] = useState(2);
+  const [frequency, setFrequency] = useState('weekly');
+  const [hourlyRate, setHourlyRate] = useState(450);
+
+  const freqMultiplier = {
+    daily: 260, // working days
+    weekly: 52,
+    monthly: 12,
+  };
+
+  const annualHours = hours * freqMultiplier[frequency];
+  const annualSavings = annualHours * hourlyRate;
+
+  return (
+    <div className="mt-24 p-8 md:p-12 rounded-3xl border border-[var(--rule)] bg-white/40 backdrop-blur-sm">
+      <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 className="display mb-6" style={{ fontSize: 'clamp(2rem, 3vw, 2.8rem)' }}>
+            What’s the <em className="ital">cost of the status quo?</em>
+          </h3>
+          <p className="text-sm mb-10 leading-relaxed text-[var(--ink-soft)] max-w-md">
+            Input a repetitive task you do today. Most businesses save 150+ hours per year on just
+            one automated workflow.
+          </p>
+
+          <div className="space-y-8">
+            <div>
+              <label className="text-xs uppercase block mb-3 tracking-widest text-[var(--ink-faint)]">
+                Hours per task
+              </label>
+              <input
+                type="range"
+                min="0.5"
+                max="20"
+                step="0.5"
+                value={hours}
+                onChange={(e) => setHours(Number(e.target.value))}
+                className="w-full accent-[var(--sienna)]"
+              />
+              <div className="flex justify-between mt-2 text-sm font-medium">
+                <span>0.5h</span>
+                <span className="text-[var(--sienna)]">{hours} hours</span>
+                <span>20h</span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="text-xs uppercase block mb-3 tracking-widest text-[var(--ink-faint)]">
+                  Frequency
+                </label>
+                <select
+                  value={frequency}
+                  onChange={(e) => setFrequency(e.target.value)}
+                  className="w-full bg-transparent border-b border-[var(--rule)] py-2 text-sm focus:outline-none focus:border-[var(--ink)]"
+                >
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly</option>
+                </select>
+              </div>
+              <div>
+                <label className="text-xs uppercase block mb-3 tracking-widest text-[var(--ink-faint)]">
+                  Hourly Rate (R)
+                </label>
+                <input
+                  type="number"
+                  value={hourlyRate}
+                  onChange={(e) => setHourlyRate(Number(e.target.value))}
+                  className="w-full bg-transparent border-b border-[var(--rule)] py-2 text-sm focus:outline-none focus:border-[var(--ink)]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-[var(--ink)] text-[var(--bone)] p-10 rounded-2xl">
+          <div className="mb-10">
+            <div className="text-xs uppercase mb-2 opacity-50 tracking-widest">
+              Annual Time Reclaimed
+            </div>
+            <div className="display text-5xl md:text-6xl text-[var(--sienna-soft)]">
+              {Math.round(annualHours)}
+              <span className="text-2xl ml-2 opacity-70">hrs</span>
+            </div>
+          </div>
+          <div>
+            <div className="text-xs uppercase mb-2 opacity-50 tracking-widest">
+              Potential Yearly Savings
+            </div>
+            <div className="display text-5xl md:text-6xl">
+              R{annualSavings.toLocaleString()}
+            </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-white/10">
+            <p className="text-xs opacity-60 leading-relaxed mb-6">
+              *Estimate based on standard working days and full automation of the task. The
+              Quick-Win Audit identifies 3-5 of these opportunities.
+            </p>
+            <a
+              href="#contact"
+              className="btn-on-dark w-full py-4 rounded-full text-sm font-medium inline-flex justify-center items-center gap-2"
+            >
+              Book the audit to start saving <ArrowRight size={14} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
+  const [expandedProject, setExpandedProject] = useState(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -30,6 +149,10 @@ export default function App() {
         'End-to-end automation of new-hire workflows for a state agency — from candidate intake through document signoff to system provisioning.',
       tags: ['SharePoint', 'Power Automate', 'HR Systems'],
       stage: 'Proposal accepted · R65,000',
+      problem:
+        'Manual HR onboarding took 15+ hours per hire, involving 4 departments and significant paper trail risks.',
+      solution:
+        'Built a SharePoint-native workflow with Power Automate that triggers on contract sign-off, auto-provisioning system access and digital file creation.',
     },
     {
       year: '2025',
@@ -39,6 +162,10 @@ export default function App() {
         'Customer-facing mobile app and operations dashboard for a Gauteng cleaning service — booking, payments, scheduling, and field-team management.',
       tags: ['React Native', 'Mobile', 'Service Marketplace'],
       stage: 'In delivery',
+      problem:
+        'Reliance on WhatsApp for bookings led to scheduling conflicts and missed payments during peak times.',
+      solution:
+        'Developed a custom React Native app with integrated Stripe payments and a real-time dispatcher dashboard for field teams.',
     },
     {
       year: '2025',
@@ -48,6 +175,10 @@ export default function App() {
         'Listing-feed integration with Redefine Properties and a top-to-bottom performance pass on the Grandeur platform.',
       tags: ['API Integration', 'Real Estate', 'Performance'],
       stage: 'Delivered',
+      problem:
+        'Property listings were delayed by 48 hours due to manual sync, causing Grandeur to lose leads to faster competitors.',
+      solution:
+        'Implemented a high-frequency API sync and optimized Next.js image handling, reducing listing delay to under 10 minutes.',
     },
     {
       year: '2022 — 2025',
@@ -57,6 +188,10 @@ export default function App() {
         'Digitised HR recruitment across a 961-employee organisation. Four production-grade JotForm pipelines (E1, PD1, PD2, PD3) and SharePoint rollouts across divisions.',
       tags: ['SharePoint', 'JotForm', 'Power Platform'],
       stage: 'Delivered',
+      problem:
+        'Recruitment for 900+ employees was handled via email attachments, making compliance audits and candidate tracking impossible.',
+      solution:
+        'Engineered four secure JotForm pipelines feeding into a central SharePoint repository with automated compliance scoring and status tracking.',
     },
   ];
 
@@ -117,6 +252,7 @@ export default function App() {
   const capabilities = [
     {
       group: 'Microsoft',
+      icon: Layers,
       items: [
         'SharePoint Online',
         'Power Automate',
@@ -129,10 +265,12 @@ export default function App() {
     },
     {
       group: 'Web & Mobile',
+      icon: Smartphone,
       items: ['React', 'React Native', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS'],
     },
     {
       group: 'AI & Automation',
+      icon: Cpu,
       items: [
         'LLM integration',
         'MCP servers',
@@ -143,6 +281,7 @@ export default function App() {
     },
     {
       group: 'Integration',
+      icon: Zap,
       items: [
         'REST & GraphQL',
         'SOAP / legacy',
@@ -443,10 +582,12 @@ export default function App() {
 
           <div className="grid md:grid-cols-2 gap-5">
             {projects.map((p, i) => (
-              <a
+              <div
                 key={i}
-                href="#contact"
-                className="card group p-8 md:p-10 rounded-2xl block"
+                onClick={() => setExpandedProject(expandedProject === i ? null : i)}
+                className={`card group p-8 md:p-10 rounded-2xl block cursor-pointer transition-all duration-500 ${
+                  expandedProject === i ? 'md:col-span-2' : ''
+                }`}
               >
                 <div className="flex items-start justify-between mb-7">
                   <div
@@ -460,30 +601,62 @@ export default function App() {
                   </div>
                   <ArrowUpRight
                     size={22}
-                    className="opacity-30 transition-all"
-                    style={{ color: 'var(--ink)' }}
+                    className={`transition-all ${
+                      expandedProject === i ? 'rotate-45 text-[var(--sienna)]' : 'opacity-30'
+                    }`}
                   />
                 </div>
-                <h3
-                  className="display mb-4"
-                  style={{ fontSize: 'clamp(1.7rem, 2.6vw, 2.4rem)' }}
-                >
+                <h3 className="display mb-4" style={{ fontSize: 'clamp(1.7rem, 2.6vw, 2.4rem)' }}>
                   {p.title}
                 </h3>
                 <p className="text-base mb-7 leading-relaxed" style={{ color: 'var(--ink-soft)' }}>
                   {p.blurb}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-5">
+
+                {expandedProject === i && (
+                  <div className="mt-8 pt-8 border-t border-[var(--rule)] grid md:grid-cols-2 gap-8 rise">
+                    <div>
+                      <h4
+                        className="text-xs uppercase mb-3 tracking-widest text-[var(--sienna)]"
+                        style={{ fontWeight: 600 }}
+                      >
+                        The Bottleneck
+                      </h4>
+                      <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-soft)' }}>
+                        {p.problem}
+                      </p>
+                    </div>
+                    <div>
+                      <h4
+                        className="text-xs uppercase mb-3 tracking-widest text-[var(--sienna)]"
+                        style={{ fontWeight: 600 }}
+                      >
+                        The Build
+                      </h4>
+                      <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-soft)' }}>
+                        {p.solution}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                <div className="flex flex-wrap gap-2 mt-8 mb-6">
                   {p.tags.map((t) => (
                     <span key={t} className="chip">
                       {t}
                     </span>
                   ))}
                 </div>
-                <div className="text-xs uppercase" style={{ ...wide, color: 'var(--sienna)' }}>
-                  {p.stage}
+
+                <div className="flex justify-between items-center border-t border-[var(--rule-soft)] pt-5">
+                  <div className="text-xs uppercase" style={{ ...wide, color: 'var(--sienna)' }}>
+                    {p.stage}
+                  </div>
+                  <div className="text-[10px] uppercase tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">
+                    {expandedProject === i ? 'Close details —' : 'View case study +'}
+                  </div>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>
@@ -582,6 +755,9 @@ export default function App() {
               </div>
             ))}
           </div>
+
+          {/* CALCULATOR */}
+          <AutomationCalculator />
         </div>
       </section>
 
@@ -615,15 +791,17 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-14">
             {capabilities.map((cap) => (
               <div key={cap.group}>
-                <h3
-                  className="display mb-6 pb-4"
-                  style={{
-                    fontSize: 'clamp(1.6rem, 2.2vw, 2rem)',
-                    borderBottom: '1px solid rgba(242, 237, 227, 0.18)',
-                  }}
-                >
-                  {cap.group}
-                </h3>
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+                  <cap.icon size={20} className="text-[var(--sienna-soft)]" />
+                  <h3
+                    className="display"
+                    style={{
+                      fontSize: 'clamp(1.6rem, 2.2vw, 2rem)',
+                    }}
+                  >
+                    {cap.group}
+                  </h3>
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {cap.items.map((item) => (
                     <span key={item} className="chip chip-dark">
