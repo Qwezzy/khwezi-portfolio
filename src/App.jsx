@@ -320,6 +320,33 @@ export default function App() {
     { num: 'R3,500', label: 'Quick-Win Audit entry' },
   ];
 
+  const methodology = [
+    {
+      step: '01',
+      title: 'Diagnostic & ROI Audit',
+      desc: 'We start with a surgical look at your current operations. I identify the 3–5 highest-leverage automation opportunities and provide an ROI roadmap.',
+      duration: '1 Week',
+    },
+    {
+      step: '02',
+      title: 'Solution Architecture',
+      desc: 'I map out the M365 tenant configuration, security protocols, and AI integration paths. This ensures the solution is scalable and compliant.',
+      duration: '2-3 Weeks',
+    },
+    {
+      step: '03',
+      title: 'Surgical Implementation',
+      desc: 'Solutions are built within your environment. No downtime, no data leaks — just professional software deployed into production.',
+      duration: 'Varies',
+    },
+    {
+      step: '04',
+      title: 'Governance & Handover',
+      desc: 'Training your team and signing off on documentation. I ensure your staff are empowered to own the system once it is live.',
+      duration: 'Ongoing',
+    },
+  ];
+
   const trustClients = [
     { name: 'Goscor Group', color: '#E31E24', font: 'sans-serif', weight: '800' },
     { name: 'USAASA', color: '#005A32', font: 'serif', weight: '700' },
@@ -365,6 +392,7 @@ export default function App() {
           </a>
           <div className="hidden md:flex items-center gap-9 text-sm">
             <a href="#work" className="underline-grow">Work</a>
+            <a href="#methodology" className="underline-grow">Methodology</a>
             <a href="#services" className="underline-grow">Services</a>
             <a href="#about" className="underline-grow">About</a>
             <a href="#contact" className="underline-grow">Contact</a>
@@ -591,6 +619,53 @@ export default function App() {
         </div>
       </section>
 
+      {/* METHODOLOGY */}
+      <section
+        id="methodology"
+        className="section py-24 md:py-32 px-6 md:px-10 border-t"
+        style={{ borderColor: 'var(--rule)', position: 'relative', zIndex: 2 }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-12 gap-x-8 mb-20">
+            <div className="col-span-12 md:col-span-3">
+              <div
+                className="text-xs uppercase flex items-center"
+                style={{ ...wide, color: 'var(--ink-faint)' }}
+              >
+                <span className="num-badge mr-2">02</span> Methodology
+              </div>
+            </div>
+            <div className="col-span-12 md:col-span-9">
+              <h2 className="display section-display">
+                The Transformation <em className="ital">Blueprint</em>.
+              </h2>
+              <p className="text-lg max-w-2xl mt-8" style={{ color: 'var(--ink-soft)' }}>
+                Consulting isn’t just about the code — it’s about the process. I follow a 
+                disciplined framework designed to minimize risk and maximize ROI in every build.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-x-8 gap-y-12">
+            {methodology.map((m, i) => (
+              <div key={i} className="flex flex-col">
+                <div className="text-4xl display mb-6" style={{ color: 'var(--sienna-soft)' }}>
+                  {m.step}
+                </div>
+                <h3 className="display text-2xl mb-4">{m.title}</h3>
+                <p className="text-sm leading-relaxed flex-1" style={{ color: 'var(--ink-soft)' }}>
+                  {m.desc}
+                </p>
+                <div className="mt-8 pt-6 border-t border-[var(--rule-soft)]">
+                  <span className="text-[10px] uppercase tracking-widest opacity-50">Timeline</span>
+                  <div className="text-sm font-medium mt-1" style={{ fontFamily: 'var(--tech-font)' }}>{m.duration}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* WORK */}
       <section
         id="work"
@@ -604,7 +679,7 @@ export default function App() {
                 className="text-xs uppercase flex items-center"
                 style={{ ...wide, color: 'var(--ink-faint)' }}
               >
-                <span className="num-badge mr-2">02</span> Selected work
+                <span className="num-badge mr-2">03</span> Selected work
               </div>
             </div>
             <div className="col-span-12 md:col-span-9">
@@ -709,7 +784,7 @@ export default function App() {
                 className="text-xs uppercase flex items-center"
                 style={{ ...wide, color: 'var(--ink-faint)' }}
               >
-                <span className="num-badge mr-2">03</span> Services
+                <span className="num-badge mr-2">04</span> Services
               </div>
             </div>
             <div className="col-span-12 md:col-span-9">
@@ -814,7 +889,7 @@ export default function App() {
                 className="text-xs uppercase flex items-center"
                 style={{ ...wide, opacity: 0.55 }}
               >
-                <span className="num-badge num-badge-dark mr-2">04</span> Capabilities
+                <span className="num-badge num-badge-dark mr-2">05</span> Capabilities
               </div>
             </div>
             <div className="col-span-12 md:col-span-9">
@@ -863,7 +938,7 @@ export default function App() {
                 className="text-xs uppercase flex items-center"
                 style={{ ...wide, color: 'var(--ink-faint)' }}
               >
-                <span className="num-badge mr-2">05</span> Experience
+                <span className="num-badge mr-2">06</span> Experience
               </div>
             </div>
             <div className="col-span-12 md:col-span-9">
@@ -921,7 +996,7 @@ export default function App() {
             className="text-xs uppercase mb-8 flex items-center"
             style={{ ...wide, color: 'var(--ink-faint)' }}
           >
-            <span className="num-badge mr-2">06</span> Start a conversation
+            <span className="num-badge mr-2">07</span> Start a conversation
           </div>
           <h2 className="display big-display mb-16 max-w-5xl">
             Two doorways. <em className="ital">Pick yours</em>.
