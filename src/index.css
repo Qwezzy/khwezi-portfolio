@@ -14,6 +14,8 @@
   --rule-soft: rgba(17, 17, 16, 0.06);
   --display-font: 'Instrument Serif', 'Times New Roman', serif;
   --body-font: 'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --tech-font: 'Geist', 'Manrope', sans-serif;
+  --mono-font: 'Geist Mono', monospace;
 }
 
 html,
@@ -36,6 +38,7 @@ body {
 }
 
 .mono-num {
+  font-family: var(--mono-font);
   font-variant-numeric: tabular-nums;
 }
 

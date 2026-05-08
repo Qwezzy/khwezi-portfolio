@@ -31,7 +31,7 @@ const AutomationCalculator = () => {
   const annualSavings = annualHours * hourlyRate;
 
   return (
-    <div className="mt-24 p-8 md:p-12 rounded-3xl border border-[var(--rule)] bg-white/40 backdrop-blur-sm">
+    <div className="mt-24 p-8 md:p-12 rounded-3xl border border-[var(--rule)] bg-white/40 backdrop-blur-sm" style={{ fontFamily: 'var(--tech-font)' }}>
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
           <h3 className="display mb-6" style={{ fontSize: 'clamp(2rem, 3vw, 2.8rem)' }}>
@@ -824,7 +824,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-14">
+          <div className="grid md:grid-cols-2 gap-x-12 gap-y-14" style={{ fontFamily: 'var(--tech-font)' }}>
             {capabilities.map((cap) => (
               <div key={cap.group}>
                 <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
