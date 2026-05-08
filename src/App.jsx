@@ -15,6 +15,8 @@ import {
   Cpu,
   Zap,
   ShieldCheck,
+  Quote,
+  FileText,
 } from 'lucide-react';
 
 const AutomationCalculator = () => {
@@ -348,6 +350,24 @@ export default function App() {
     },
   ];
 
+  const testimonials = [
+    {
+      quote: "Khwezi doesn't just write code; he understands the business bottlenecks. His automation of our HR recruitment pipeline at Goscor was a game-changer for compliance and efficiency.",
+      author: "Operations Lead",
+      org: "Goscor Group",
+    },
+    {
+      quote: "The SharePoint automation built for USAASA simplified a complex, multi-departmental workflow into a single, secure process. Professional, secure, and delivered on time.",
+      author: "Project Manager",
+      org: "USAASA",
+    },
+    {
+      quote: "A rare find in the South African market. A developer who prioritizes enterprise security and POPIA compliance as much as the UI.",
+      author: "Technical Director",
+      org: "Mid-Market Client",
+    }
+  ];
+
   const trustClients = [
     { name: 'Goscor Group', color: '#E31E24', font: 'sans-serif', weight: '800' },
     { name: 'USAASA', color: '#005A32', font: 'serif', weight: '700' },
@@ -394,6 +414,7 @@ export default function App() {
           <div className="hidden md:flex items-center gap-9 text-sm">
             <a href="#work" className="underline-grow">Work</a>
             <a href="#methodology" className="underline-grow">Methodology</a>
+            <a href="#testimonials" className="underline-grow">Testimonials</a>
             <a href="#services" className="underline-grow">Services</a>
             <a href="#about" className="underline-grow">About</a>
             <a href="#contact" className="underline-grow">Contact</a>
@@ -746,6 +767,13 @@ export default function App() {
                       <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-soft)' }}>
                         {p.solution}
                       </p>
+
+                      <a 
+                        href={`mailto:khwezi@khwezi.online?subject=Requesting%20Case%20Study:%20${p.title}`}
+                        className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--ink)] hover:text-[var(--sienna)] transition-colors"
+                      >
+                        <FileText size={14} /> Request Full Case Study (PDF)
+                      </a>
                     </div>
                   </div>
                 )}
@@ -772,6 +800,48 @@ export default function App() {
         </div>
       </section>
 
+      {/* TESTIMONIALS */}
+      <section
+        id="testimonials"
+        className="section py-24 md:py-32 px-6 md:px-10 border-t"
+        style={{ borderColor: 'var(--rule)', position: 'relative', zIndex: 2 }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-12 gap-x-8 mb-20">
+            <div className="col-span-12 md:col-span-3">
+              <div
+                className="text-xs uppercase flex items-center"
+                style={{ ...wide, color: 'var(--ink-faint)' }}
+              >
+                <span className="num-badge mr-2">04</span> Client Voice
+              </div>
+            </div>
+            <div className="col-span-12 md:col-span-9">
+              <h2 className="display section-display">
+                Feedback from <em className="ital">the field</em>.
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((t, i) => (
+              <div key={i} className="flex flex-col">
+                <div className="mb-8">
+                  <Quote size={32} className="text-[var(--sienna-soft)] opacity-30" />
+                </div>
+                <p className="text-lg leading-relaxed italic flex-1 mb-10" style={{ color: 'var(--ink-soft)' }}>
+                  "{t.quote}"
+                </p>
+                <div className="pt-6 border-t border-[var(--rule-soft)]">
+                  <div className="font-bold text-sm uppercase tracking-wider">{t.author}</div>
+                  <div className="text-xs mt-1" style={{ color: 'var(--ink-faint)' }}>{t.org}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section
         id="services"
@@ -785,7 +855,7 @@ export default function App() {
                 className="text-xs uppercase flex items-center"
                 style={{ ...wide, color: 'var(--ink-faint)' }}
               >
-                <span className="num-badge mr-2">04</span> Services
+                <span className="num-badge mr-2">05</span> Services
               </div>
             </div>
             <div className="col-span-12 md:col-span-9">
@@ -890,7 +960,7 @@ export default function App() {
                 className="text-xs uppercase flex items-center"
                 style={{ ...wide, opacity: 0.55 }}
               >
-                <span className="num-badge num-badge-dark mr-2">05</span> Capabilities
+                <span className="num-badge num-badge-dark mr-2">06</span> Capabilities
               </div>
             </div>
             <div className="col-span-12 md:col-span-9">
@@ -968,7 +1038,7 @@ export default function App() {
                 className="text-xs uppercase flex items-center"
                 style={{ ...wide, color: 'var(--ink-faint)' }}
               >
-                <span className="num-badge mr-2">06</span> Experience
+                <span className="num-badge mr-2">07</span> Experience
               </div>
             </div>
             <div className="col-span-12 md:col-span-9">
@@ -1026,7 +1096,7 @@ export default function App() {
             className="text-xs uppercase mb-8 flex items-center"
             style={{ ...wide, color: 'var(--ink-faint)' }}
           >
-            <span className="num-badge mr-2">07</span> Start a conversation
+            <span className="num-badge mr-2">08</span> Start a conversation
           </div>
           <h2 className="display big-display mb-16 max-w-5xl">
             Two doorways. <em className="ital">Pick yours</em>.
