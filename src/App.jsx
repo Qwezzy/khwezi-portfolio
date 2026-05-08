@@ -321,11 +321,11 @@ export default function App() {
   ];
 
   const trustClients = [
-    'Goscor Group',
-    'USAASA',
-    'Kusasa Cleaning',
-    'Grandeur Listings',
-    'Redefine Properties',
+    { name: 'Goscor Group', color: '#E31E24', font: 'sans-serif', weight: '800' },
+    { name: 'USAASA', color: '#005A32', font: 'serif', weight: '700' },
+    { name: 'Kusasa Cleaning', color: '#00A4E4', font: 'sans-serif', weight: '600' },
+    { name: 'Grandeur Listings', color: '#D4AF37', font: 'serif', weight: '400' },
+    { name: 'Redefine Properties', color: '#003366', font: 'sans-serif', weight: '700' },
   ];
 
   const wide = { letterSpacing: '0.2em' };
@@ -481,16 +481,25 @@ export default function App() {
         </div>
         <div className="ticker overflow-hidden">
           <div
-            className="marquee flex gap-12 whitespace-nowrap"
+            className="marquee flex gap-12 items-center whitespace-nowrap"
             style={{ width: 'max-content' }}
           >
             {[...trustClients, ...trustClients, ...trustClients].map((c, i) => (
               <span
                 key={i}
-                className="display"
-                style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)', color: 'var(--ink-soft)' }}
+                style={{
+                  fontSize: 'clamp(1.6rem, 3.5vw, 2.8rem)',
+                  color: 'var(--ink-soft)',
+                  fontFamily: c.font === 'serif' ? 'var(--display-font)' : 'var(--body-font)',
+                  fontWeight: c.weight,
+                  opacity: 0.8,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '1rem'
+                }}
               >
-                {c} <span style={{ color: 'var(--sienna)' }}>·</span>
+                <span style={{ color: c.color }}>{c.name}</span>
+                <span style={{ color: 'var(--rule)', fontSize: '1.5rem' }}>·</span>
               </span>
             ))}
           </div>
