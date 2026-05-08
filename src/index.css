@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bone: #F2EDE3;
+  --bone-deep: #E8E1D1;
+  --ink: #111110;
+  --ink-soft: #2C2820;
+  --ink-faint: #6B6358;
+  --sienna: #B14B22;
+  --sienna-soft: #D9764B;
+  --rule: rgba(17, 17, 16, 0.12);
+  --rule-soft: rgba(17, 17, 16, 0.06);
+}
+
+html,
+body {
+  background: var(--bone);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.display {
+  font-family: 'Instrument Serif', 'Times New Roman', serif;
+  letter-spacing: -0.015em;
+  line-height: 0.96;
+  font-weight: 400;
+}
+
+.body-font {
+  font-family: 'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+.mono-num {
+  font-variant-numeric: tabular-nums;
+}
+
+.ital {
+  font-style: italic;
+}
+
+.hero-display {
+  font-size: clamp(56px, 11vw, 152px);
+  line-height: 0.94;
+}
+
+.section-display {
+  font-size: clamp(40px, 6vw, 86px);
+  line-height: 1;
+}
+
+.big-display {
+  font-size: clamp(56px, 9vw, 132px);
+  line-height: 0.94;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: riseIn 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.rise-1 { animation-delay: 0.05s; }
+.rise-2 { animation-delay: 0.15s; }
+.rise-3 { animation-delay: 0.28s; }
+.rise-4 { animation-delay: 0.42s; }
+
+@keyframes drift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(2%, -2%) scale(1.04);
+  }
+}
+
+.blob {
+  animation: drift 20s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee {
+  animation: marquee 50s linear infinite;
+}
+
+.ticker {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.underline-grow {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.underline-grow:hover { background-size: 100% 1px; }
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--bone);
+  transition: transform 0.25s ease, background 0.3s ease;
+}
+.btn-primary:hover {
+  background: var(--sienna);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  background: transparent;
+  transition: all 0.25s ease;
+}
+.btn-ghost:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--bone);
+}
+
+.btn-on-dark {
+  background: var(--bone);
+  color: var(--ink);
+  transition: all 0.25s ease;
+}
+.btn-on-dark:hover {
+  background: var(--sienna);
+  color: var(--bone);
+}
+
+.card {
+  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.35);
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.3s ease, background 0.3s ease;
+}
+.card:hover {
+  border-color: var(--ink);
+  background: rgba(255, 255, 255, 0.65);
+  transform: translateY(-3px);
+}
+
+.card-dark {
+  background: var(--ink);
+  color: var(--bone);
+  border: 1px solid var(--ink);
+}
+
+.chip {
+  font-size: 0.78rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  display: inline-block;
+}
+.chip-dark {
+  border-color: rgba(242, 237, 227, 0.22);
+  color: var(--bone);
+}
+
+.num-badge {
+  font-family: 'Instrument Serif', serif;
+  color: var(--sienna);
+  font-size: 1.4rem;
+}
+.num-badge-dark {
+  color: var(--sienna-soft);
+}
+
+.row-hover {
+  transition: padding-left 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.row-hover:hover {
+  padding-left: 1rem;
+}
+
+.section {
+  scroll-margin-top: 80px;
+  position: relative;
+}
+
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+html {
+  scroll-behavior: smooth;
+}
