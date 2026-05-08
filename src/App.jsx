@@ -506,10 +506,11 @@ export default function App() {
                 Book a Quick-Win Audit · R3,500 <ArrowRight size={14} />
               </a>
               <a
-                href="#contact"
+                href="/cv.html"
+                target="_blank"
                 className="btn-ghost px-6 py-3.5 rounded-full text-sm flex items-center gap-2"
               >
-                <Download size={14} /> Download CV
+                <FileText size={14} /> View CV
               </a>
               <a
                 href="#work"
@@ -1166,10 +1167,11 @@ export default function App() {
                   <Mail size={14} /> Send an email
                 </a>
                 <a
-                  href="mailto:khwezi@khwezi.online?subject=CV%20request"
+                  href="/cv.html"
+                  target="_blank"
                   className="btn-ghost px-6 py-3 rounded-full text-sm inline-flex items-center gap-2"
                 >
-                  <Download size={14} /> Request CV
+                  <FileText size={14} /> View CV
                 </a>
               </div>
             </div>

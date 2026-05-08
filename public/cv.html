@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV — Khwezi Flatela</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@200..800&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bone: #F2EDE3;
+            --ink: #111110;
+            --ink-soft: #2C2820;
+            --ink-faint: #6B6358;
+            --sienna: #B14B22;
+            --rule: rgba(17, 17, 16, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: var(--bone);
+            color: var(--ink);
+            font-family: 'Manrope', sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+
+        header {
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--ink-faint);
+        }
+
+        .contact-info a {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        section {
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-cols: 200px 1fr;
+            gap: 40px;
+        }
+
+        h2 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--sienna);
+            font-weight: 700;
+        }
+
+        h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+
+        .sub {
+            font-size: 0.9rem;
+            color: var(--ink-faint);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+            color: var(--ink-soft);
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-cols: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .skill-group h4 {
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 5px;
+        }
+
+        .skill-group ul {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+        }
+
+        .mono {
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 30px; }
+            header { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .contact-info { text-align: left; }
+            section { grid-template-cols: 1fr; gap: 15px; }
+            h1 { font-size: 2.5rem; }
+        }
+
+        @media print {
+            body { padding: 0; background: white; }
+            .container { box-shadow: none; max-width: 100%; }
+        }
+        
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--ink);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 99px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            border: none;
+        }
+        @media print { .print-btn { display: none; } }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">Print to PDF</button>
+
+    <div class="container">
+        <header>
+            <div>
+                <h1>Khwezi Flatela</h1>
+                <p class="sub">Digital Transformation Consultant</p>
+            </div>
+            <div class="contact-info">
+                <p>Benoni, Gauteng, ZA</p>
+                <p><a href="mailto:khwezi@khwezi.online">khwezi@khwezi.online</a></p>
+                <p><a href="https://khwezi.online">khwezi.online</a></p>
+            </div>
+        </header>
+
+        <section>
+            <h2>Summary</h2>
+            <div class="content">
+                <p>Strategic technology consultant with 15+ years of experience delivering high-impact digital infrastructure for South African organisations. Specialist in SharePoint Online, Power Platform, and AI-driven automation. Proven track record of digitising complex operations for state agencies and mid-market enterprises.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            <div class="content">
+                <div class="experience-item">
+                    <h3>Founder & Principal Consultant</h3>
+                    <div class="sub">Khemo IT Solutions · 2008 — Present</div>
+                    <p>Directing digital transformation for varied clients. Delivering end-to-end software solutions, SharePoint migrations, and custom API integrations.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Developer & SharePoint Admin</h3>
+                    <div class="sub">Goscor Group · 2022 — 2025</div>
+                    <p>Led group-wide digitisation for 961 employees. Engineered production HR recruitment pipelines using JotForm and SharePoint, ensuring POPIA compliance and operational transparency across divisions.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Independent Developer</h3>
+                    <div class="sub">Various Clients · 2014 — 2022</div>
+                    <p>Specialized in full-stack web and mobile development (React, React Native, Node.js) for local and international markets.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Core Stack</h2>
+            <div class="content skills-grid">
+                <div class="skill-group">
+                    <h4>Microsoft Ecosystem</h4>
+                    <ul>
+                        <li>SharePoint Online / Admin</li>
+                        <li>Power Automate & Apps</li>
+                        <li>Power BI & Power Pages</li>
+                        <li>Azure Cloud Services</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h4>Development</h4>
+                    <ul>
+                        <li>React & Next.js</li>
+                        <li>React Native (Mobile)</li>
+                        <li>Node.js / TypeScript</li>
+                        <li>REST & GraphQL APIs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Focus</h2>
+            <div class="content">
+                <p>Enterprise AI Integration · Process Automation · Security & Governance · POPIA Compliance · M365 Strategy</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
