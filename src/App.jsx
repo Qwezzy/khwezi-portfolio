@@ -118,7 +118,9 @@ const AutomationCalculator = () => {
               Quick-Win Audit identifies 3-5 of these opportunities.
             </p>
             <a
-              href="#contact"
+              href="https://calendly.com/khwezi-flatela/meet-with-khwezi-flatela"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-on-dark w-full py-4 rounded-full text-sm font-medium inline-flex justify-center items-center gap-2"
             >
               Book the audit to start saving <ArrowRight size={14} />
@@ -435,7 +437,9 @@ export default function App() {
 
             <div className="col-span-12 md:col-start-3 md:col-span-9 rise rise-4 mt-4 flex flex-wrap gap-3 items-center">
               <a
-                href="#services"
+                href="https://calendly.com/khwezi-flatela/meet-with-khwezi-flatela"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary px-6 py-3.5 rounded-full text-sm flex items-center gap-2"
               >
                 Book a Quick-Win Audit · R3,500 <ArrowRight size={14} />
@@ -766,7 +770,9 @@ export default function App() {
                   ))}
                 </ul>
                 <a
-                  href="#contact"
+                  href={s.name === 'AI Quick-Win Audit' ? 'https://calendly.com/khwezi-flatela/meet-with-khwezi-flatela' : '#contact'}
+                  target={s.name === 'AI Quick-Win Audit' ? '_blank' : '_self'}
+                  rel={s.name === 'AI Quick-Win Audit' ? 'noopener noreferrer' : ''}
                   className={`px-5 py-3 rounded-full text-sm inline-flex items-center justify-center gap-2 ${
                     s.featured ? 'btn-on-dark' : 'btn-ghost'
                   }`}
@@ -931,7 +937,9 @@ export default function App() {
                 for your business — costed and prioritised.
               </p>
               <a
-                href="mailto:khwezi@khwezi.online?subject=AI%20Quick-Win%20Audit"
+                href="https://calendly.com/khwezi-flatela/meet-with-khwezi-flatela"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary px-6 py-3 rounded-full text-sm inline-flex items-center gap-2"
               >
                 Book the audit <ArrowRight size={14} />
