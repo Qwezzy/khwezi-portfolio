@@ -417,16 +417,27 @@ export default function App() {
             <a href="#testimonials" className="underline-grow">Testimonials</a>
             <a href="#services" className="underline-grow">Services</a>
             <a href="#about" className="underline-grow">About</a>
-            <a href="#contact" className="underline-grow">Contact</a>
+            <a 
+              href="https://calendly.com/khwezi-flatela/meet-with-khwezi-flatela" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="underline-grow"
+            >
+              Book a Call
+            </a>
           </div>
           <a
-            href="#contact"
+            href="https://calendly.com/khwezi-flatela/meet-with-khwezi-flatela"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary px-4 py-2 text-sm rounded-full hidden sm:flex items-center gap-2"
           >
             Start a conversation <ArrowUpRight size={14} />
           </a>
           <a
-            href="#contact"
+            href="https://calendly.com/khwezi-flatela/meet-with-khwezi-flatela"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary px-3 py-2 text-xs rounded-full sm:hidden flex items-center gap-1"
           >
             Talk <ArrowUpRight size={12} />
@@ -925,9 +936,9 @@ export default function App() {
                   ))}
                 </ul>
                 <a
-                  href={s.name === 'AI Quick-Win Audit' ? 'https://calendly.com/khwezi-flatela/meet-with-khwezi-flatela' : '#contact'}
-                  target={s.name === 'AI Quick-Win Audit' ? '_blank' : '_self'}
-                  rel={s.name === 'AI Quick-Win Audit' ? 'noopener noreferrer' : ''}
+                  href="https://calendly.com/khwezi-flatela/meet-with-khwezi-flatela"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`px-5 py-3 rounded-full text-sm inline-flex items-center justify-center gap-2 ${
                     s.featured ? 'btn-on-dark' : 'btn-ghost'
                   }`}
