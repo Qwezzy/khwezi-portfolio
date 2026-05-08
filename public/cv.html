@@ -70,7 +70,7 @@
         section {
             margin-bottom: 40px;
             display: grid;
-            grid-template-cols: 200px 1fr;
+            grid-template-columns: 200px 1fr;
             gap: 40px;
         }
 
@@ -104,6 +104,26 @@
 
         .experience-item {
             margin-bottom: 30px;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .experience-item li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--ink-soft);
+        }
+
+        .experience-item li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--sienna);
         }
 
         .skills-grid {
@@ -168,19 +188,20 @@
         <header>
             <div>
                 <h1>Khwezi Flatela</h1>
-                <p class="sub">Digital Transformation Consultant</p>
+                <p class="sub">Microsoft 365 Specialist | SharePoint & Power Platform Expert</p>
             </div>
             <div class="contact-info">
                 <p>Benoni, Gauteng, ZA</p>
-                <p><a href="mailto:khwezi@khwezi.online">khwezi@khwezi.online</a></p>
+                <p>076 631 1195</p>
+                <p><a href="mailto:qwezzy@gmail.com">qwezzy@gmail.com</a></p>
                 <p><a href="https://khwezi.online">khwezi.online</a></p>
             </div>
         </header>
 
         <section>
-            <h2>Summary</h2>
+            <h2>Profile</h2>
             <div class="content">
-                <p>Strategic technology consultant with 15+ years of experience delivering high-impact digital infrastructure for South African organisations. Specialist in SharePoint Online, Power Platform, and AI-driven automation. Proven track record of digitising complex operations for state agencies and mid-market enterprises.</p>
+                <p>Results-driven Microsoft 365 specialist with 15+ years of experience transforming how organisations work through SharePoint Online, Power Platform, and M365 ecosystem solutions. Proven ability to bridge technical expertise with business needs — designing automated workflows, driving user adoption, and delivering measurable efficiency improvements across multi-entity organisations.</p>
             </div>
         </section>
 
@@ -188,53 +209,86 @@
             <h2>Experience</h2>
             <div class="content">
                 <div class="experience-item">
-                    <h3>Founder & Principal Consultant</h3>
-                    <div class="sub">Khemo IT Solutions · 2008 — Present</div>
-                    <p>Directing digital transformation for varied clients. Delivering end-to-end software solutions, SharePoint migrations, and custom API integrations.</p>
+                    <h3>Developer — Microsoft 365 & Digital Transformation</h3>
+                    <div class="sub">Goscor Group · April 2025 — Present</div>
+                    <ul>
+                        <li>Manage and continuously improve the Microsoft 365 environment across a ~1,000-employee organisation.</li>
+                        <li>Design and implement SharePoint solutions across multiple business units, including approval workflows, HR process automation, and brand-compliant intranet experiences.</li>
+                        <li>Automate business processes by migrating Excel-based workflows to Power Pages and Dataverse, reducing manual effort and improving data integrity.</li>
+                        <li>Lead HR digital transformation using JotForm-integrated systems, streamlining recruitment and onboarding processes.</li>
+                        <li>Build Power Automate flows for approvals, notifications, and cross-system integrations including Mix Telematics fleet management APIs.</li>
+                    </ul>
                 </div>
 
                 <div class="experience-item">
-                    <h3>Developer & SharePoint Admin</h3>
-                    <div class="sub">Goscor Group · 2022 — 2025</div>
-                    <p>Led group-wide digitisation for 961 employees. Engineered production HR recruitment pipelines using JotForm and SharePoint, ensuring POPIA compliance and operational transparency across divisions.</p>
+                    <h3>Founder & Lead Consultant</h3>
+                    <div class="sub">Khemo IT Solutions · January 2010 — Present</div>
+                    <ul>
+                        <li>Operate a digital transformation consultancy specialising in SharePoint, Power Platform, and Microsoft 365 solutions for South African SMEs and NGOs.</li>
+                        <li>Delivered a R65,000 SharePoint automation project for USAASA, digitising HR onboarding processes.</li>
+                        <li>Advise clients on POPIA compliance, process automation, and Microsoft 365 adoption strategies.</li>
+                        <li>Delivered projects for international clients including CNRF (France), Aboriginal Ecotourism, and C.I.E Lighting.</li>
+                    </ul>
                 </div>
 
                 <div class="experience-item">
-                    <h3>Independent Developer</h3>
-                    <div class="sub">Various Clients · 2014 — 2022</div>
-                    <p>Specialized in full-stack web and mobile development (React, React Native, Node.js) for local and international markets.</p>
+                    <h3>SharePoint Administrator</h3>
+                    <div class="sub">Motus Holdings Limited · March 2018 — November 2020</div>
+                    <ul>
+                        <li>Led organisation-wide SharePoint Online rollout — planning, timelines, and governance framework establishment.</li>
+                        <li>Managed site collections, storage policies, external sharing, and permissions across the enterprise.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Microsoft 365 Administrator</h3>
+                    <div class="sub">Motus Holdings Limited · January 2017 — March 2018</div>
+                    <ul>
+                        <li>Executed on-premises Exchange to Office 365 cloud migration with minimal business disruption.</li>
+                        <li>Deployed and configured Microsoft Teams, SharePoint Online, and OneDrive for Business.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Web Developer</h3>
+                    <div class="sub">SANBI · June 2008 — December 2011</div>
+                    <p>Developed and maintained the SABIF web portal, managing server infrastructure and stakeholder integrations with GBIF.</p>
                 </div>
             </div>
         </section>
 
         <section>
-            <h2>Core Stack</h2>
+            <h2>Technical Skills</h2>
             <div class="content skills-grid">
                 <div class="skill-group">
-                    <h4>Microsoft Ecosystem</h4>
+                    <h4>Microsoft 365 Stack</h4>
                     <ul>
-                        <li>SharePoint Online / Admin</li>
-                        <li>Power Automate & Apps</li>
-                        <li>Power BI & Power Pages</li>
-                        <li>Azure Cloud Services</li>
+                        <li>SharePoint Online & On-Premises</li>
+                        <li>Power Automate, Apps, BI, Pages</li>
+                        <li>Dataverse, Teams, Azure</li>
+                        <li>Microsoft Copilot Integration</li>
                     </ul>
                 </div>
                 <div class="skill-group">
-                    <h4>Development</h4>
+                    <h4>Web Technologies</h4>
                     <ul>
-                        <li>React & Next.js</li>
-                        <li>React Native (Mobile)</li>
-                        <li>Node.js / TypeScript</li>
-                        <li>REST & GraphQL APIs</li>
+                        <li>HTML5, CSS3, JavaScript, PHP</li>
+                        <li>React, MySQL, REST APIs</li>
+                        <li>JotForm, Mix Telematics API</li>
+                        <li>AI Integration & MCP Servers</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section>
-            <h2>Focus</h2>
+            <h2>Education</h2>
             <div class="content">
-                <p>Enterprise AI Integration · Process Automation · Security & Governance · POPIA Compliance · M365 Strategy</p>
+                <div class="experience-item">
+                    <p><strong>Diploma in Microsoft Developer</strong> — Damelin College (2002–2004)</p>
+                    <p><strong>Database Administration</strong> — New Horizons Computer Learning Centre</p>
+                    <p><strong>Microsoft 365 Certified</strong> — Administrator Expert (In progress)</p>
+                </div>
             </div>
         </section>
     </div>
