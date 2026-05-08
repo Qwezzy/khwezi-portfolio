@@ -14,6 +14,7 @@ import {
   Smartphone,
   Cpu,
   Zap,
+  ShieldCheck,
 } from 'lucide-react';
 
 const AutomationCalculator = () => {
@@ -900,6 +901,35 @@ export default function App() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-14" style={{ fontFamily: 'var(--tech-font)' }}>
+            {/* SECURITY PILLAR - High Trust Card */}
+            <div className="md:col-span-2 p-8 md:p-10 rounded-2xl bg-[var(--sienna)] text-[var(--bone)] mb-8">
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="p-4 bg-white/10 rounded-xl">
+                  <ShieldCheck size={40} className="text-[var(--bone)]" />
+                </div>
+                <div>
+                  <h3 className="display text-3xl mb-4">Enterprise AI Security & Governance</h3>
+                  <p className="text-base opacity-90 leading-relaxed max-w-3xl">
+                    I build AI and automation solutions that live <strong className="text-white">inside your existing M365 tenant</strong>. Your data never leaves your secure environment, never trains public models, and remains fully compliant with POPIA and enterprise governance standards.
+                  </p>
+                  <div className="flex flex-wrap gap-x-8 gap-y-4 mt-8">
+                    <div className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--sienna-soft)]" />
+                      <span className="text-xs uppercase tracking-widest font-medium">Tenant-Native Execution</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--sienna-soft)]" />
+                      <span className="text-xs uppercase tracking-widest font-medium">POPIA Compliant</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--sienna-soft)]" />
+                      <span className="text-xs uppercase tracking-widest font-medium">Zero Public Model Training</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {capabilities.map((cap) => (
               <div key={cap.group}>
                 <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
