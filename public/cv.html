@@ -16,9 +16,7 @@
             --sienna: #B14B22;
             --rule: rgba(17, 17, 16, 0.12);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body {
             background: var(--bone);
             color: var(--ink);
@@ -27,7 +25,6 @@
             padding: 40px 20px;
             -webkit-font-smoothing: antialiased;
         }
-
         .container {
             max-width: 850px;
             margin: 0 auto;
@@ -36,7 +33,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             border-radius: 4px;
         }
-
         header {
             border-bottom: 2px solid var(--ink);
             padding-bottom: 30px;
@@ -45,14 +41,12 @@
             justify-content: space-between;
             align-items: flex-end;
         }
-
         h1 {
             font-family: 'Instrument Serif', serif;
             font-size: 3.5rem;
             font-weight: 400;
             line-height: 1;
         }
-
         .contact-info {
             text-align: right;
             font-size: 0.85rem;
@@ -60,20 +54,17 @@
             letter-spacing: 0.1em;
             color: var(--ink-faint);
         }
-
         .contact-info a {
             color: var(--ink);
             text-decoration: none;
             border-bottom: 1px solid var(--rule);
         }
-
         section {
             margin-bottom: 40px;
             display: grid;
             grid-template-columns: 200px 1fr;
             gap: 40px;
         }
-
         h2 {
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -81,14 +72,12 @@
             color: var(--sienna);
             font-weight: 700;
         }
-
         h3 {
             font-family: 'Instrument Serif', serif;
             font-size: 1.8rem;
             font-weight: 400;
             margin-bottom: 5px;
         }
-
         .sub {
             font-size: 0.9rem;
             color: var(--ink-faint);
@@ -96,21 +85,9 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-
-        .content p {
-            margin-bottom: 15px;
-            color: var(--ink-soft);
-        }
-
-        .experience-item {
-            margin-bottom: 30px;
-        }
-
-        .experience-item ul {
-            list-style: none;
-            margin-bottom: 15px;
-        }
-
+        .content p { margin-bottom: 15px; color: var(--ink-soft); }
+        .experience-item { margin-bottom: 30px; }
+        .experience-item ul { list-style: none; margin-bottom: 15px; }
         .experience-item li {
             position: relative;
             padding-left: 20px;
@@ -118,51 +95,31 @@
             font-size: 0.95rem;
             color: var(--ink-soft);
         }
-
         .experience-item li::before {
-            content: "•";
+            content: "\2022";
             position: absolute;
             left: 0;
             color: var(--sienna);
         }
-
-        .skills-grid {
-            display: grid;
-            grid-template-cols: 1fr 1fr;
-            gap: 20px;
-        }
-
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .skill-group h4 {
             font-size: 0.85rem;
             margin-bottom: 10px;
             border-bottom: 1px solid var(--rule);
             padding-bottom: 5px;
         }
-
-        .skill-group ul {
-            list-style: none;
-            font-size: 0.9rem;
-            color: var(--ink-soft);
-        }
-
-        .mono {
-            font-family: 'Geist Mono', monospace;
-            font-size: 0.8rem;
-        }
-
+        .skill-group ul { list-style: none; font-size: 0.9rem; color: var(--ink-soft); }
         @media (max-width: 768px) {
             .container { padding: 30px; }
             header { flex-direction: column; align-items: flex-start; gap: 20px; }
             .contact-info { text-align: left; }
-            section { grid-template-cols: 1fr; gap: 15px; }
+            section { grid-template-columns: 1fr; gap: 15px; }
             h1 { font-size: 2.5rem; }
         }
-
         @media print {
             body { padding: 0; background: white; }
             .container { box-shadow: none; max-width: 100%; }
         }
-        
         .print-btn {
             position: fixed;
             top: 20px;
@@ -183,7 +140,6 @@
 </head>
 <body>
     <button class="print-btn" onclick="window.print()">Print to PDF</button>
-
     <div class="container">
         <header>
             <div>
@@ -193,70 +149,62 @@
             <div class="contact-info">
                 <p>Benoni, Gauteng, ZA</p>
                 <p>076 631 1195</p>
-                <p><a href="mailto:qwezzy@gmail.com">qwezzy@gmail.com</a></p>
+                <p><a href="mailto:khwezi@khwezi.online">khwezi@khwezi.online</a></p>
                 <p><a href="https://khwezi.online">khwezi.online</a></p>
             </div>
         </header>
-
         <section>
             <h2>Profile</h2>
             <div class="content">
-                <p>Results-driven Microsoft 365 specialist with 15+ years of experience transforming how organisations work through SharePoint Online, Power Platform, and M365 ecosystem solutions. Proven ability to bridge technical expertise with business needs — designing automated workflows, driving user adoption, and delivering measurable efficiency improvements across multi-entity organisations.</p>
+                <p>Microsoft 365 specialist with more than fifteen years transforming how organisations work through SharePoint Online, Power Platform, and the M365 stack. Experience is personal — employed roles and independent contracts across private and public sector. New work is contracted through Flatela (Pty) Ltd.</p>
             </div>
         </section>
-
         <section>
             <h2>Experience</h2>
             <div class="content">
                 <div class="experience-item">
                     <h3>Developer — Microsoft 365 & Digital Transformation</h3>
-                    <div class="sub">Goscor Group · April 2025 — Present</div>
+                    <div class="sub">Goscor Group · April 2025 — December 2025 · contract</div>
                     <ul>
-                        <li>Manage and continuously improve the Microsoft 365 environment across a ~1,000-employee organisation.</li>
-                        <li>Design and implement SharePoint solutions across multiple business units, including approval workflows, HR process automation, and brand-compliant intranet experiences.</li>
-                        <li>Automate business processes by migrating Excel-based workflows to Power Pages and Dataverse, reducing manual effort and improving data integrity.</li>
-                        <li>Lead HR digital transformation using JotForm-integrated systems, streamlining recruitment and onboarding processes.</li>
-                        <li>Build Power Automate flows for approvals, notifications, and cross-system integrations including Mix Telematics fleet management APIs.</li>
+                        <li>Microsoft 365 environment across a ~1,000-employee organisation.</li>
+                        <li>SharePoint solutions across business units: approvals, HR automation, intranet.</li>
+                        <li>Migrated Excel workflows to Power Pages and Dataverse.</li>
+                        <li>HR pipelines on JotForm and SharePoint.</li>
+                        <li>Power Automate plus Mix Telematics fleet APIs.</li>
                     </ul>
                 </div>
-
                 <div class="experience-item">
-                    <h3>Founder & Lead Consultant</h3>
-                    <div class="sub">Khemo IT Solutions · January 2010 — Present</div>
+                    <h3>Independent consultant & developer</h3>
+                    <div class="sub">Contracts across private and public sector · 2006 — present</div>
                     <ul>
-                        <li>Operate a digital transformation consultancy specialising in SharePoint, Power Platform, and Microsoft 365 solutions for South African SMEs and NGOs.</li>
-                        <li>Delivered a R65,000 SharePoint automation project for USAASA, digitising HR onboarding processes.</li>
-                        <li>Advise clients on POPIA compliance, process automation, and Microsoft 365 adoption strategies.</li>
-                        <li>Delivered projects for international clients including CNRF (France), Aboriginal Ecotourism, and C.I.E Lighting.</li>
+                        <li>SharePoint, Power Platform and custom systems for mid-market firms, institutes and public-sector teams.</li>
+                        <li>Named work includes USAASA, Telkom/BCX, Department of Public Works (via Cornastone), NMISA, CNRS and C.I.E Lighting.</li>
+                        <li>New engagements: Flatela (Pty) Ltd 2026/291183/07. CSD MAAA1734821. B-BBEE Level 1 EME.</li>
                     </ul>
                 </div>
-
                 <div class="experience-item">
                     <h3>SharePoint Administrator</h3>
                     <div class="sub">Motus Holdings Limited · March 2018 — November 2020</div>
                     <ul>
-                        <li>Led organisation-wide SharePoint Online rollout — planning, timelines, and governance framework establishment.</li>
-                        <li>Managed site collections, storage policies, external sharing, and permissions across the enterprise.</li>
+                        <li>Organisation-wide SharePoint Online rollout and governance framework.</li>
+                        <li>Site collections, storage policies, external sharing and permissions.</li>
                     </ul>
                 </div>
-
                 <div class="experience-item">
                     <h3>Microsoft 365 Administrator</h3>
                     <div class="sub">Motus Holdings Limited · January 2017 — March 2018</div>
                     <ul>
-                        <li>Executed on-premises Exchange to Office 365 cloud migration with minimal business disruption.</li>
-                        <li>Deployed and configured Microsoft Teams, SharePoint Online, and OneDrive for Business.</li>
+                        <li>On-premises Exchange to Office 365 migration.</li>
+                        <li>Teams, SharePoint Online and OneDrive for Business.</li>
                     </ul>
                 </div>
-
                 <div class="experience-item">
                     <h3>Web Developer</h3>
                     <div class="sub">SANBI · June 2008 — December 2011</div>
-                    <p>Developed and maintained the SABIF web portal, managing server infrastructure and stakeholder integrations with GBIF.</p>
+                    <p>SABIF web portal, server infrastructure, and GBIF stakeholder integrations.</p>
                 </div>
             </div>
         </section>
-
         <section>
             <h2>Technical Skills</h2>
             <div class="content skills-grid">
@@ -280,12 +228,11 @@
                 </div>
             </div>
         </section>
-
         <section>
             <h2>Education</h2>
             <div class="content">
                 <div class="experience-item">
-                    <p><strong>Diploma in Microsoft Developer</strong> — Damelin College (2002–2004)</p>
+                    <p><strong>MCSE Developer diploma</strong> — Damelin College (2002–2004)</p>
                     <p><strong>Database Administration</strong> — New Horizons Computer Learning Centre</p>
                     <p><strong>Microsoft 365 Certified</strong> — Administrator Expert (In progress)</p>
                 </div>
