@@ -14,12 +14,14 @@ import {
   Cpu,
   Zap,
   ShieldCheck,
-  Quote,
   FileText,
 } from 'lucide-react';
 import { getSiteData } from './siteData';
 
 const CAL = 'https://calendly.com/khwezi-flatela/meet-with-khwezi-flatela';
+const WA = 'https://wa.me/27766311195';
+const LI = 'https://www.linkedin.com/in/khwezi/';
+const GBP = 'https://share.google/52brsCDKLHM62f9Lr';
 
 const AutomationCalculator = () => {
   const [hours, setHours] = useState(2);
@@ -93,7 +95,7 @@ const AutomationCalculator = () => {
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [expandedProject, setExpandedProject] = useState(null);
-  const { projects, services, capabilities, experience, stats, methodology, testimonials, trustClients } = getSiteData({ Layers, Smartphone, Cpu, Zap });
+  const { projects, services, capabilities, experience, stats, methodology, proof, trustClients } = getSiteData({ Layers, Smartphone, Cpu, Zap });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -114,16 +116,16 @@ export default function App() {
           <div className="hidden md:flex items-center gap-9 text-sm">
             <a href="#work" className="underline-grow">Work</a>
             <a href="#methodology" className="underline-grow">Methodology</a>
-            <a href="#testimonials" className="underline-grow">Testimonials</a>
+            <a href="#proof" className="underline-grow">Proof</a>
             <a href="#services" className="underline-grow">Services</a>
             <a href="#about" className="underline-grow">About</a>
             <a href={CAL} target="_blank" rel="noopener noreferrer" className="underline-grow">Book a Call</a>
           </div>
-          <a href={CAL} target="_blank" rel="noopener noreferrer" className="btn-primary px-4 py-2 text-sm rounded-full hidden sm:flex items-center gap-2">
-            Start a conversation <ArrowUpRight size={14} />
+          <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary px-4 py-2 text-sm rounded-full hidden sm:flex items-center gap-2">
+            WhatsApp <ArrowUpRight size={14} />
           </a>
-          <a href={CAL} target="_blank" rel="noopener noreferrer" className="btn-primary px-3 py-2 text-xs rounded-full sm:hidden flex items-center gap-1">
-            Talk <ArrowUpRight size={12} />
+          <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary px-3 py-2 text-xs rounded-full sm:hidden flex items-center gap-1">
+            WhatsApp <ArrowUpRight size={12} />
           </a>
         </div>
       </nav>
@@ -131,8 +133,11 @@ export default function App() {
       <section id="home" className="section relative pt-32 md:pt-40 pb-20 md:pb-28 px-6 md:px-10 overflow-hidden" style={{ minHeight: '100vh' }}>
         <div className="blob absolute" style={{ top: '12%', right: '-6%', width: 'min(80vw, 620px)', height: 'min(80vw, 620px)', borderRadius: '50%', background: 'radial-gradient(circle, var(--sienna) 0%, transparent 65%)', opacity: 0.22, filter: 'blur(40px)', zIndex: 0 }} />
         <div className="max-w-7xl mx-auto w-full relative" style={{ zIndex: 2 }}>
-          <div className="grid grid-cols-12 gap-y-8">
+          <div className="grid grid-cols-12 gap-y-8 items-start">
             <div className="col-span-12 md:col-span-2 rise rise-1">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden border border-[var(--rule)] mb-4">
+                <img src="/Khwezi-Flatela.JPG" alt="Khwezi Flatela" className="w-full h-full object-cover" />
+              </div>
               <div className="text-xs uppercase" style={{ ...wide, color: 'var(--ink-faint)' }}>
                 <div>Khwezi</div>
                 <div>Flatela</div>
@@ -153,20 +158,23 @@ export default function App() {
               </p>
             </div>
             <div className="col-span-12 md:col-start-3 md:col-span-9 rise rise-4 mt-4 flex flex-wrap gap-3 items-center">
-              <a href={CAL} target="_blank" rel="noopener noreferrer" className="btn-primary px-6 py-3.5 rounded-full text-sm flex items-center gap-2">
-                Book a Quick-Win Audit · R3,500 <ArrowRight size={14} />
+              <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary px-6 py-3.5 rounded-full text-sm flex items-center gap-2">
+                WhatsApp 076 631 1195 <ArrowRight size={14} />
+              </a>
+              <a href={CAL} target="_blank" rel="noopener noreferrer" className="btn-ghost px-6 py-3.5 rounded-full text-sm flex items-center gap-2">
+                Book a call <ArrowRight size={14} />
               </a>
               <a href="/cv.html" target="_blank" className="btn-ghost px-6 py-3.5 rounded-full text-sm flex items-center gap-2">
                 <FileText size={14} /> View CV
               </a>
-              <a href="#work" className="px-6 py-3.5 text-sm flex items-center gap-2 underline-grow">
-                See selected work <ArrowRight size={14} />
-              </a>
             </div>
           </div>
-          <div className="mt-24 md:mt-32 flex justify-between items-end text-xs uppercase" style={{ ...wide, color: 'var(--ink-faint)' }}>
-            <div>Benoni · Gauteng · ZA</div>
-            <div className="hidden md:block">Scroll ↓</div>
+          <div className="mt-16 md:mt-20 pt-6 border-t text-xs uppercase flex flex-wrap gap-x-6 gap-y-2" style={{ ...wide, color: 'var(--ink-faint)', borderColor: 'var(--rule)' }}>
+            <span>Flatela (Pty) Ltd</span>
+            <span>2026/291183/07</span>
+            <span>B-BBEE Level 1 EME</span>
+            <span>CSD MAAA1734821</span>
+            <span>Benoni</span>
           </div>
         </div>
       </section>
@@ -313,27 +321,27 @@ export default function App() {
         </div>
       </section>
 
-      <section id="testimonials" className="section py-24 md:py-32 px-6 md:px-10 border-t" style={{ borderColor: 'var(--rule)', position: 'relative', zIndex: 2 }}>
+      <section id="proof" className="section py-24 md:py-32 px-6 md:px-10 border-t" style={{ borderColor: 'var(--rule)', position: 'relative', zIndex: 2 }}>
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-12 gap-x-8 mb-20">
+          <div className="grid grid-cols-12 gap-x-8 mb-16">
             <div className="col-span-12 md:col-span-3">
               <div className="text-xs uppercase flex items-center" style={{ ...wide, color: 'var(--ink-faint)' }}>
-                <span className="num-badge mr-2">04</span> Client Voice
+                <span className="num-badge mr-2">04</span> Named proof
               </div>
             </div>
             <div className="col-span-12 md:col-span-9">
-              <h2 className="display section-display">Feedback from <em className="ital">the field</em>.</h2>
+              <h2 className="display section-display">Organisations I have <em className="ital">already served</em>.</h2>
+              <p className="text-lg max-w-2xl mt-8" style={{ color: 'var(--ink-soft)' }}>
+                No anonymous quotes. These are named roles and contracts from the CV — the years sit with me.
+              </p>
             </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <div key={i} className="flex flex-col">
-                <div className="mb-8"><Quote size={32} className="text-[var(--sienna-soft)] opacity-30" /></div>
-                <p className="text-lg leading-relaxed italic flex-1 mb-10" style={{ color: 'var(--ink-soft)' }}>"{t.quote}"</p>
-                <div className="pt-6 border-t border-[var(--rule-soft)]">
-                  <div className="font-bold text-sm uppercase tracking-wider">{t.author}</div>
-                  <div className="text-xs mt-1" style={{ color: 'var(--ink-faint)' }}>{t.org}</div>
-                </div>
+          <div className="grid md:grid-cols-2 gap-5">
+            {proof.map((item, i) => (
+              <div key={i} className="card p-8 rounded-2xl">
+                <div className="text-xs uppercase mb-3" style={{ ...wide, color: 'var(--sienna)' }}>{item.period}</div>
+                <h3 className="display mb-3" style={{ fontSize: 'clamp(1.5rem, 2.2vw, 2rem)' }}>{item.org}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-soft)' }}>{item.line}</p>
               </div>
             ))}
           </div>
@@ -466,9 +474,14 @@ export default function App() {
               <p className="text-base mb-9 leading-relaxed" style={{ color: 'var(--ink-soft)' }}>
                 R3,500. One week. A clear roadmap of the 3–5 highest-impact automations or AI plays for your business — costed and prioritised.
               </p>
-              <a href={CAL} target="_blank" rel="noopener noreferrer" className="btn-primary px-6 py-3 rounded-full text-sm inline-flex items-center gap-2">
-                Book the audit <ArrowRight size={14} />
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary px-6 py-3 rounded-full text-sm inline-flex items-center gap-2">
+                  WhatsApp <ArrowRight size={14} />
+                </a>
+                <a href={CAL} target="_blank" rel="noopener noreferrer" className="btn-ghost px-6 py-3 rounded-full text-sm inline-flex items-center gap-2">
+                  Book the audit <ArrowRight size={14} />
+                </a>
+              </div>
             </div>
             <div className="card p-10 rounded-2xl">
               <div className="text-xs uppercase mb-5" style={{ ...wide, color: 'var(--sienna)' }}>For employers & recruiters</div>
@@ -521,9 +534,14 @@ export default function App() {
             </div>
           </div>
           <div className="flex flex-col items-start md:items-end gap-5">
+            <div className="flex flex-wrap gap-3 text-xs mb-2">
+              <a href={LI} target="_blank" rel="noopener noreferrer" className="underline-grow" style={{ opacity: 0.8 }}>LinkedIn</a>
+              <a href={GBP} target="_blank" rel="noopener noreferrer" className="underline-grow" style={{ opacity: 0.8 }}>Google Business</a>
+              <a href={WA} target="_blank" rel="noopener noreferrer" className="underline-grow" style={{ opacity: 0.8 }}>WhatsApp</a>
+            </div>
             <div className="flex gap-2.5">
               {[
-                { Icon: Linkedin, href: 'https://www.linkedin.com/in/khwezi', label: 'LinkedIn' },
+                { Icon: Linkedin, href: LI, label: 'LinkedIn' },
                 { Icon: Twitter, href: 'https://twitter.com/Khwestar', label: 'Twitter' },
                 { Icon: Github, href: 'https://github.com/qwezzy', label: 'GitHub' },
               ].map(({ Icon, href, label }) => (
@@ -538,6 +556,18 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      <a
+        href={WA}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="WhatsApp Khwezi Flatela"
+        className="fixed bottom-5 right-5 z-50 rounded-full px-5 py-3.5 text-sm font-medium flex items-center gap-2 shadow-lg"
+        style={{ background: '#111110', color: '#F2EDE3' }}
+      >
+        WhatsApp
+        <ArrowUpRight size={14} />
+      </a>
     </div>
   );
 }
