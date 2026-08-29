@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Khwezi Flatela — Portfolio for Khemo IT Solutions",
+  "description": "Khwezi Flatela — personal SharePoint and EDRMS practice. Work through Flatela (Pty) Ltd.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
