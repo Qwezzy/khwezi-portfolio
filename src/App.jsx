@@ -136,7 +136,7 @@ export default function App() {
           <div className="grid grid-cols-12 gap-y-8 items-start">
             <div className="col-span-12 md:col-span-2 rise rise-1">
               <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden border border-[var(--rule)] mb-4">
-                <img src="/Khwezi-Flatela.JPG" alt="Khwezi Flatela" className="w-full h-full object-cover" />
+                <img src="/Khwezi-Flatela.JPG" alt="Khwezi Flatela" className="w-full h-full object-cover" style={{ objectPosition: '50% 26%' }} />
               </div>
               <div className="text-xs uppercase" style={{ ...wide, color: 'var(--ink-faint)' }}>
                 <div>Khwezi</div>
@@ -208,7 +208,7 @@ export default function App() {
               <div className="col-span-12 md:col-span-5 mb-8 md:mb-0">
                 <div className="relative">
                   <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-[var(--rule)]">
-                    <img src="/Khwezi-Flatela.JPG" alt="Khwezi Flatela" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                    <img src="/Khwezi-Flatela.JPG" alt="Khwezi Flatela" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" style={{ objectPosition: '50% 28%' }} />
                   </div>
                   <div className="absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2 border-[var(--sienna)] rounded-br-2xl opacity-40" />
                 </div>
