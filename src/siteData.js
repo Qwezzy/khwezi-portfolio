@@ -7,7 +7,7 @@ export function getSiteData({ Layers, Smartphone, Cpu, Zap }) {
       blurb:
         'End-to-end automation of new-hire workflows for a state agency — from candidate intake through document signoff to system provisioning.',
       tags: ['SharePoint', 'Power Automate', 'HR Systems'],
-      stage: 'Proposal accepted · R65,000',
+      stage: 'Scoped and accepted',
       problem:
         'Manual HR onboarding took 15+ hours per hire, involving 4 departments and significant paper trail risks.',
       solution:
@@ -129,7 +129,7 @@ export function getSiteData({ Layers, Smartphone, Cpu, Zap }) {
 
   const stats = [
     { num: '15+', label: 'Years across contracts' },
-    { num: '100+', label: 'Engagements delivered' },
+    { num: 'Motus', label: 'SharePoint Online rollout' },
     { num: '961', label: 'People served at Goscor' },
     { num: 'R3,500', label: 'Quick-Win Audit entry' },
   ];
@@ -161,31 +161,47 @@ export function getSiteData({ Layers, Smartphone, Cpu, Zap }) {
     },
   ];
 
-  const testimonials = [
+  const proof = [
     {
-      quote: "Khwezi doesn't just write code; he understands the business bottlenecks. His automation of our HR recruitment pipeline at Goscor was a game-changer for compliance and efficiency.",
-      author: 'Operations Lead',
+      org: 'Motus Holdings Limited',
+      period: '2017 — 2020',
+      line: 'Microsoft 365 administrator, then organisation-wide SharePoint Online rollout and governance.',
+    },
+    {
+      org: 'SANBI',
+      period: '2008 — 2011',
+      line: 'SABIF web portal, server infrastructure and GBIF stakeholder integrations.',
+    },
+    {
       org: 'Goscor Group',
+      period: 'Apr — Dec 2025 · contract',
+      line: 'HR pipelines on JotForm and SharePoint rollouts across a ~961-person group.',
     },
     {
-      quote: 'The SharePoint automation built for USAASA simplified a complex, multi-departmental workflow into a single, secure process. Professional, secure, and delivered on time.',
-      author: 'Project Manager',
       org: 'USAASA',
+      period: '2025',
+      line: 'SharePoint HR onboarding workflow — scoped and accepted for a state agency.',
     },
     {
-      quote: 'A rare find in the South African market. A developer who prioritizes enterprise security and POPIA compliance as much as the UI.',
-      author: 'Technical Director',
-      org: 'Mid-Market Client',
+      org: 'Telkom / BCX',
+      period: 'Contract',
+      line: 'Independent Microsoft and web work delivered through a national systems integrator.',
+    },
+    {
+      org: 'Flatela (Pty) Ltd',
+      period: 'Vehicle for new work',
+      line: '2026/291183/07 · B-BBEE Level 1 EME · CSD MAAA1734821 · Benoni.',
     },
   ];
 
   const trustClients = [
+    { name: 'Motus', color: '#0033A0', font: 'sans-serif', weight: '800' },
+    { name: 'SANBI', color: '#2E7D32', font: 'sans-serif', weight: '700' },
     { name: 'Goscor Group', color: '#E31E24', font: 'sans-serif', weight: '800' },
     { name: 'USAASA', color: '#005A32', font: 'serif', weight: '700' },
     { name: 'Kusasa Cleaning', color: '#00A4E4', font: 'sans-serif', weight: '600' },
     { name: 'Grandeur Listings', color: '#D4AF37', font: 'serif', weight: '400' },
-    { name: 'Redefine Properties', color: '#003366', font: 'sans-serif', weight: '700' },
   ];
 
-  return { projects, services, capabilities, experience, stats, methodology, testimonials, trustClients };
+  return { projects, services, capabilities, experience, stats, methodology, proof, trustClients };
 }
