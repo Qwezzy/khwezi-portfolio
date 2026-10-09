@@ -123,8 +123,9 @@ export function getSiteData({ Layers, Smartphone, Cpu, Zap }) {
     { period: 'Apr 2025 — Dec 2025', role: 'Developer · Microsoft 365 & Digital Transformation', org: 'Goscor Group · contract' },
     { period: 'Mar 2018 — Nov 2020', role: 'SharePoint Administrator', org: 'Motus Holdings Limited' },
     { period: 'Jan 2017 — Mar 2018', role: 'Microsoft 365 Administrator', org: 'Motus Holdings Limited' },
+    { period: '2012 — 2016', role: 'Web & Database Developer · Montpellier, France', org: 'CNRS / CEFE research centre · via Khemo IT Solutions' },
     { period: 'Jun 2008 — Dec 2011', role: 'Web Developer', org: 'SANBI' },
-    { period: '2006 — Now', role: 'Independent consultant & developer', org: 'Contracts across private and public sector' },
+    { period: '2006 — 2025', role: 'Independent consultant & developer', org: 'Khemo IT Solutions CC (co-founded 2008) · private, public and international clients' },
   ];
 
   const stats = [
@@ -186,6 +187,16 @@ export function getSiteData({ Layers, Smartphone, Cpu, Zap }) {
       org: 'Telkom / BCX',
       period: 'Contract',
       line: 'Independent Microsoft and web work delivered through a national systems integrator.',
+    },
+    {
+      org: 'CIE, CNRS and NMISA',
+      period: '2006 — 2016 · International',
+      line: 'Standards body websites in Vienna, research data systems in Montpellier, and SADC metrology cooperation.',
+    },
+    {
+      org: 'Khemo IT Solutions CC',
+      period: 'Co-founded 2008',
+      line: 'Consulting vehicle for international and enterprise integration work, including webMethods for Wesbank via Software AG.',
     },
     {
       org: 'Flatela (Pty) Ltd',
