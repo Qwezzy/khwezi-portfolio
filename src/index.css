@@ -214,3 +214,6 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.client-logo { filter: grayscale(1) brightness(0); opacity: 0.6; transition: opacity .3s; }
+.client-logo:hover { opacity: 0.9; }

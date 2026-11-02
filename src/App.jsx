@@ -21,6 +21,16 @@ import { getSiteData } from './siteData';
 import { AUDIT_CAP, AUDIT_PRICE, BOOKING_URL as CAL, WA, WA_AUDIT, MAIL_AUDIT } from './config';
 import { outcomes } from './outcomes';
 
+// Official logos, see LOGO-SOURCES.md. Shown in uniform monochrome.
+const clientLogos = [
+  { name: 'Motus', src: '/logos/motus.svg', w: 173, h: 54 },
+  { name: 'SANBI', src: '/logos/sanbi.webp', w: 366, h: 96 },
+  { name: 'Goscor Group', src: '/logos/goscor.svg', w: 170, h: 55 },
+  { name: 'USAASA', src: '/logos/usaasa.webp', w: 203, h: 96, maxH: '48px' },
+  { name: 'Kusasa Cleaning', src: '/logos/kusasa.webp', w: 202, h: 76 },
+  { name: 'Grandeur Listings', src: '/logos/grandeur.webp', w: 295, h: 96 },
+];
+
 const AUDIT_DELIVERABLES = [
   '3 to 5 prioritised opportunities in your Microsoft 365 tenant',
   'Rough ROI and effort for each one',
@@ -221,15 +231,14 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 md:px-10 mb-6">
           <div className="text-xs uppercase" style={{ ...wide, color: 'var(--ink-faint)' }}>Selected engagements</div>
         </div>
-        <div className="ticker overflow-hidden">
-          <div className="marquee flex gap-12 items-center whitespace-nowrap" style={{ width: 'max-content' }}>
-            {[...trustClients, ...trustClients, ...trustClients].map((c, i) => (
-              <span key={i} style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.8rem)', color: 'var(--ink-soft)', fontFamily: c.font === 'serif' ? 'var(--display-font)' : 'var(--body-font)', fontWeight: c.weight, opacity: 0.8, display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <span style={{ color: c.color }}>{c.name}</span>
-                <span style={{ color: 'var(--rule)', fontSize: '1.5rem' }}>·</span>
-              </span>
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-8 items-center" aria-label="Clients">
+            {clientLogos.map((l) => (
+              <li key={l.name} className="flex items-center justify-center h-12">
+                <img src={l.src} alt={`${l.name} logo`} loading="lazy" decoding="async" width={l.w} height={l.h} className="client-logo" style={{ maxHeight: l.maxH || '40px', width: 'auto', maxWidth: '100%' }} />
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
