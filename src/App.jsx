@@ -18,8 +18,43 @@ import {
 } from 'lucide-react';
 import { getSiteData } from './siteData';
 
-const CAL = 'https://calendly.com/khwezi-flatela/meet-with-khwezi-flatela';
-const WA = 'https://wa.me/27766311195';
+import { AUDIT_CAP, AUDIT_PRICE, BOOKING_URL as CAL, WA, WA_AUDIT, MAIL_AUDIT } from './config';
+import { outcomes } from './outcomes';
+
+// Official logos, see LOGO-SOURCES.md. Shown in uniform monochrome.
+const clientLogos = [
+  { name: 'Motus', src: '/logos/motus.svg', w: 173, h: 54 },
+  { name: 'SANBI', src: '/logos/sanbi.webp', w: 366, h: 96 },
+  { name: 'Goscor Group', src: '/logos/goscor.svg', w: 170, h: 55 },
+  { name: 'USAASA', src: '/logos/usaasa.webp', w: 203, h: 96, maxH: '48px' },
+  { name: 'Kusasa Cleaning', src: '/logos/kusasa.webp', w: 202, h: 76 },
+  { name: 'Grandeur Listings', src: '/logos/grandeur.webp', w: 295, h: 96 },
+];
+
+const AUDIT_DELIVERABLES = [
+  '3 to 5 prioritised opportunities in your Microsoft 365 tenant',
+  'Rough ROI and effort for each one',
+  'Clear next-step recommendations',
+  'An implementation-phase recommendation to finish',
+];
+
+// Renders nothing until src/outcomes.js holds real, client-approved results.
+const Outcomes = () => {
+  if (!outcomes.length) return null;
+  return (
+    <section className="py-16 px-6 md:px-10" style={{ position: 'relative', zIndex: 2 }}>
+      <div className="max-w-7xl mx-auto grid sm:grid-cols-3 gap-5">
+        {outcomes.map((o, i) => (
+          <div key={i} className="card p-8 rounded-2xl">
+            <div className="display mono-num" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>{o.metric}</div>
+            <div className="text-sm mt-2">{o.label}</div>
+            <div className="text-xs uppercase mt-4" style={{ letterSpacing: '0.2em', color: 'var(--ink-faint)' }}>{o.context}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 const LI = 'https://www.linkedin.com/in/khwezi/';
 const GBP = 'https://share.google/52brsCDKLHM62f9Lr';
 
@@ -82,7 +117,7 @@ const AutomationCalculator = () => {
             <p className="text-xs opacity-60 leading-relaxed mb-6">
               *Estimate based on standard working days and full automation of the task. The Quick-Win Audit identifies 3-5 of these opportunities.
             </p>
-            <a href={CAL} target="_blank" rel="noopener noreferrer" className="btn-on-dark w-full py-4 rounded-full text-sm font-medium inline-flex justify-center items-center gap-2">
+            <a href={WA_AUDIT} target="_blank" rel="noopener noreferrer" className="btn-on-dark w-full py-4 rounded-full text-sm font-medium inline-flex justify-center items-center gap-2">
               Book the audit to start saving <ArrowRight size={14} />
             </a>
           </div>
@@ -106,7 +141,7 @@ export default function App() {
   const wide = { letterSpacing: '0.2em' };
 
   return (
-    <div className="body-font grain" style={{ background: 'var(--bone)', color: 'var(--ink)', minHeight: '100vh', position: 'relative' }}>
+    <div className="body-font grain" style={{ background: 'var(--bone)', color: 'var(--ink)', minHeight: '100vh', position: 'relative', overflowX: 'clip' }}>
       <nav className="fixed top-0 left-0 right-0 transition-all duration-500" style={{ zIndex: 50, background: scrolled ? 'rgba(242, 237, 227, 0.85)' : 'transparent', backdropFilter: scrolled ? 'blur(14px)' : 'none', WebkitBackdropFilter: scrolled ? 'blur(14px)' : 'none', borderBottom: scrolled ? '1px solid var(--rule)' : '1px solid transparent' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
           <a href="#home" className="flex items-baseline gap-2">
@@ -119,24 +154,21 @@ export default function App() {
             <a href="#proof" className="underline-grow">Proof</a>
             <a href="#services" className="underline-grow">Services</a>
             <a href="#about" className="underline-grow">About</a>
-            <a href={CAL} target="_blank" rel="noopener noreferrer" className="underline-grow">Book a Call</a>
+            {CAL && <a href={CAL} target="_blank" rel="noopener noreferrer" className="underline-grow">Book a call</a>}
           </div>
-          <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary px-4 py-2 text-sm rounded-full hidden sm:flex items-center gap-2">
-            WhatsApp <ArrowUpRight size={14} />
-          </a>
-          <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary px-3 py-2 text-xs rounded-full sm:hidden flex items-center gap-1">
-            WhatsApp <ArrowUpRight size={12} />
+          <a href="#audit" className="btn-primary px-4 py-2 text-sm rounded-full flex items-center gap-2 whitespace-nowrap">
+            <span className="hidden sm:inline">Book the {AUDIT_PRICE} audit</span><span className="sm:hidden">{AUDIT_PRICE} audit</span> <ArrowRight size={14} />
           </a>
         </div>
       </nav>
 
-      <section id="home" className="section relative pt-32 md:pt-40 pb-20 md:pb-28 px-6 md:px-10 overflow-hidden" style={{ minHeight: '100vh' }}>
+      <section id="home" className="section relative pt-24 md:pt-40 pb-20 md:pb-28 px-6 md:px-10 overflow-hidden" style={{ minHeight: '100vh' }}>
         <div className="blob absolute" style={{ top: '12%', right: '-6%', width: 'min(80vw, 620px)', height: 'min(80vw, 620px)', borderRadius: '50%', background: 'radial-gradient(circle, var(--sienna) 0%, transparent 65%)', opacity: 0.22, filter: 'blur(40px)', zIndex: 0 }} />
         <div className="max-w-7xl mx-auto w-full relative" style={{ zIndex: 2 }}>
           <div className="grid grid-cols-12 gap-y-8 items-start">
-            <div className="col-span-12 md:col-span-2 rise rise-1">
+            <div className="hidden md:block md:col-span-2 rise rise-1">
               <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden border border-[var(--rule)] mb-4">
-                <img src="/Khwezi-Flatela.JPG" alt="Khwezi Flatela" className="w-full h-full object-cover" style={{ objectPosition: '50% 26%' }} />
+                <img src="/khwezi-hero.webp" alt="Khwezi Flatela" width="96" height="96" fetchpriority="high" className="w-full h-full object-cover" style={{ objectPosition: '50% 26%' }} />
               </div>
               <div className="text-xs uppercase" style={{ ...wide, color: 'var(--ink-faint)' }}>
                 <div>Khwezi</div>
@@ -153,45 +185,60 @@ export default function App() {
               </h1>
             </div>
             <div className="col-span-12 md:col-start-3 md:col-span-7 rise rise-3 mt-2">
-              <p className="text-lg md:text-xl leading-relaxed" style={{ color: 'var(--ink-soft)' }}>
+              <p className="sm:hidden text-base leading-relaxed" style={{ color: 'var(--ink-soft)' }}>SharePoint and EDRMS architect in Benoni. 15+ years with Motus, SANBI and Goscor Group.</p>
+              <p className="hidden sm:block text-lg md:text-xl leading-relaxed" style={{ color: 'var(--ink-soft)' }}>
                 I'm <strong style={{ color: 'var(--ink)' }}>Khwezi Flatela</strong> — a SharePoint and EDRMS architect based in Benoni. Grew up in Daveyton, East Rand. Fifteen years across employed roles and contracts for state agencies, mid-market firms and founder-led teams. New work is contracted through Flatela (Pty) Ltd.
               </p>
             </div>
-            <div className="col-span-12 md:col-start-3 md:col-span-9 rise rise-4 mt-4 flex flex-wrap gap-3 items-center">
-              <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary px-6 py-3.5 rounded-full text-sm flex items-center gap-2">
-                WhatsApp 076 631 1195 <ArrowRight size={14} />
-              </a>
-              <a href={CAL} target="_blank" rel="noopener noreferrer" className="btn-ghost px-6 py-3.5 rounded-full text-sm flex items-center gap-2">
-                Book a call <ArrowRight size={14} />
-              </a>
-              <a href="/cv.html" target="_blank" className="btn-ghost px-6 py-3.5 rounded-full text-sm flex items-center gap-2">
-                <FileText size={14} /> View CV
-              </a>
+            <div id="audit" className="col-span-12 md:col-start-3 md:col-span-9 rise rise-4 mt-4 card p-6 md:p-8 rounded-2xl" style={{ scrollMarginTop: '5rem' }}>
+              <div className="text-xs uppercase mb-3" style={{ ...wide, color: 'var(--sienna)' }}>Start here · Limited to {AUDIT_CAP} audits per month</div>
+              <h2 className="display mb-4" style={{ fontSize: 'clamp(1.7rem, 3vw, 2.4rem)' }}>AI Quick-Win Audit. {AUDIT_PRICE} fixed fee, one week.</h2>
+              <p className="text-sm mb-3" style={{ color: 'var(--ink-soft)' }}>Guaranteed deliverable:</p>
+              <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 mb-6">
+                {AUDIT_DELIVERABLES.map((d) => (
+                  <li key={d} className="flex gap-2 text-sm"><Check size={15} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--sienna)' }} />{d}</li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-3 items-center">
+                <a href={WA_AUDIT} target="_blank" rel="noopener noreferrer" className="btn-primary px-6 py-3.5 rounded-full text-sm flex items-center gap-2">
+                  Book the audit on WhatsApp <ArrowRight size={14} />
+                </a>
+                {CAL && (
+                  <a href={CAL} target="_blank" rel="noopener noreferrer" className="btn-ghost px-6 py-3.5 rounded-full text-sm flex items-center gap-2">
+                    <Calendar size={14} /> Book a call
+                  </a>
+                )}
+                <a href={MAIL_AUDIT} className="btn-ghost px-6 py-3.5 rounded-full text-sm flex items-center gap-2">
+                  <Mail size={14} /> Email
+                </a>
+                <a href="/cv.html" target="_blank" className="text-sm underline-grow ml-1">View CV</a>
+              </div>
             </div>
           </div>
           <div className="mt-16 md:mt-20 pt-6 border-t text-xs uppercase flex flex-wrap gap-x-6 gap-y-2" style={{ ...wide, color: 'var(--ink-faint)', borderColor: 'var(--rule)' }}>
-            <span>Flatela (Pty) Ltd</span>
-            <span>2026/291183/07</span>
+            <span>15+ years</span>
+            <span>Motus · SANBI · Goscor Group · USAASA</span>
             <span>B-BBEE Level 1 EME</span>
-            <span>CSD MAAA1734821</span>
-            <span>Benoni</span>
+            <span>CSD registered · MAAA1734821</span>
+            <span>FLATELA (PTY) LTD 2026/291183/07</span>
           </div>
         </div>
       </section>
+
+      <Outcomes />
 
       <section className="py-12 border-y" style={{ borderColor: 'var(--rule)', position: 'relative', zIndex: 2 }}>
         <div className="max-w-7xl mx-auto px-6 md:px-10 mb-6">
           <div className="text-xs uppercase" style={{ ...wide, color: 'var(--ink-faint)' }}>Selected engagements</div>
         </div>
-        <div className="ticker overflow-hidden">
-          <div className="marquee flex gap-12 items-center whitespace-nowrap" style={{ width: 'max-content' }}>
-            {[...trustClients, ...trustClients, ...trustClients].map((c, i) => (
-              <span key={i} style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.8rem)', color: 'var(--ink-soft)', fontFamily: c.font === 'serif' ? 'var(--display-font)' : 'var(--body-font)', fontWeight: c.weight, opacity: 0.8, display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <span style={{ color: c.color }}>{c.name}</span>
-                <span style={{ color: 'var(--rule)', fontSize: '1.5rem' }}>·</span>
-              </span>
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-8 items-center" aria-label="Clients">
+            {clientLogos.map((l) => (
+              <li key={l.name} className="flex items-center justify-center h-12">
+                <img src={l.src} alt={`${l.name} logo`} loading="lazy" decoding="async" width={l.w} height={l.h} className="client-logo" style={{ maxHeight: l.maxH || '40px', width: 'auto', maxWidth: '100%' }} />
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -204,16 +251,16 @@ export default function App() {
           </div>
           <div className="col-span-12 md:col-span-9">
             <h2 className="display section-display mb-12">Fifteen years deep <em className="ital">into the work</em>.</h2>
-            <div className="grid md:grid-cols-12 gap-10 items-start mb-16">
-              <div className="col-span-12 md:col-span-5 mb-8 md:mb-0">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start mb-16">
+              <div className="md:col-span-5 mb-8 md:mb-0 min-w-0">
                 <div className="relative">
                   <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-[var(--rule)]">
-                    <img src="/Khwezi-Flatela.JPG" alt="Khwezi Flatela" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" style={{ objectPosition: '50% 28%' }} />
+                    <img src="/khwezi-about.webp" alt="Khwezi Flatela" loading="lazy" width="600" height="750" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" style={{ objectPosition: '50% 28%' }} />
                   </div>
                   <div className="absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2 border-[var(--sienna)] rounded-br-2xl opacity-40" />
                 </div>
               </div>
-              <div className="col-span-12 md:col-span-7">
+              <div className="md:col-span-7 min-w-0">
                 <div className="space-y-6 text-lg" style={{ color: 'var(--ink-soft)' }}>
                   <p>
                     I grew up in Daveyton on the East Rand and work from Benoni. The last fifteen years have been SharePoint, records, Power Platform and custom systems — Motus, SANBI, Goscor, USAASA and independent contracts. The years sit with me, not with one company name.
@@ -357,9 +404,9 @@ export default function App() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-9">
-              <h2 className="display section-display mb-6">Three ways <em className="ital">to work together</em>.</h2>
+              <h2 className="display section-display mb-6">Audit, sprint, <em className="ital">then retainer</em>.</h2>
               <p className="text-lg max-w-2xl" style={{ color: 'var(--ink-soft)' }}>
-                From a one-week diagnostic to multi-month transformation engagements. Pick the doorway that fits where you are.
+                Every engagement starts with the audit. The sprint builds the top one or two items it finds. The retainer keeps the work improving.
               </p>
             </div>
           </div>
@@ -381,7 +428,7 @@ export default function App() {
                     </li>
                   ))}
                 </ul>
-                <a href={CAL} target="_blank" rel="noopener noreferrer" className={`px-5 py-3 rounded-full text-sm inline-flex items-center justify-center gap-2 ${s.featured ? 'btn-on-dark' : 'btn-ghost'}`}>
+                <a href={s.featured ? WA_AUDIT : WA} target="_blank" rel="noopener noreferrer" className={`px-5 py-3 rounded-full text-sm inline-flex items-center justify-center gap-2 ${s.featured ? 'btn-on-dark' : 'btn-ghost'}`}>
                   {s.cta} <ArrowRight size={14} />
                 </a>
               </div>
@@ -472,14 +519,19 @@ export default function App() {
               <div className="text-xs uppercase mb-5" style={{ ...wide, color: 'var(--sienna)' }}>For businesses</div>
               <h3 className="display mb-5" style={{ fontSize: 'clamp(1.9rem, 2.6vw, 2.4rem)' }}>Book the AI Quick-Win Audit.</h3>
               <p className="text-base mb-9 leading-relaxed" style={{ color: 'var(--ink-soft)' }}>
-                R3,500. One week. A clear roadmap of the 3–5 highest-impact automations or AI plays for your business — costed and prioritised.
+                {AUDIT_PRICE}. One week. 3 to 5 prioritised opportunities with rough ROI, effort and next steps, plus an implementation-phase recommendation. Limited to {AUDIT_CAP} audits per month.
               </p>
               <div className="flex flex-wrap gap-3">
-                <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary px-6 py-3 rounded-full text-sm inline-flex items-center gap-2">
-                  WhatsApp <ArrowRight size={14} />
+                <a href={WA_AUDIT} target="_blank" rel="noopener noreferrer" className="btn-primary px-6 py-3 rounded-full text-sm inline-flex items-center gap-2">
+                  Book the audit on WhatsApp <ArrowRight size={14} />
                 </a>
-                <a href={CAL} target="_blank" rel="noopener noreferrer" className="btn-ghost px-6 py-3 rounded-full text-sm inline-flex items-center gap-2">
-                  Book the audit <ArrowRight size={14} />
+                {CAL && (
+                  <a href={CAL} target="_blank" rel="noopener noreferrer" className="btn-ghost px-6 py-3 rounded-full text-sm inline-flex items-center gap-2">
+                    <Calendar size={14} /> Book a call
+                  </a>
+                )}
+                <a href={MAIL_AUDIT} className="btn-ghost px-6 py-3 rounded-full text-sm inline-flex items-center gap-2">
+                  <Mail size={14} /> Email
                 </a>
               </div>
             </div>
@@ -525,12 +577,12 @@ export default function App() {
         </div>
       </section>
 
-      <footer className="py-14 px-6 md:px-10" style={{ background: 'var(--ink)', color: 'var(--bone)', position: 'relative', zIndex: 2 }}>
+      <footer className="pt-14 pb-24 px-6 md:px-10" style={{ background: 'var(--ink)', color: 'var(--bone)', position: 'relative', zIndex: 2 }}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-10">
           <div>
             <div className="display mb-3" style={{ fontSize: 'clamp(2.6rem, 5vw, 4rem)' }}>Khwezi Flatela</div>
             <div className="text-sm max-w-md" style={{ opacity: 0.65 }}>
-              Personal practice. SharePoint, EDRMS and Power Platform for Gauteng teams. Work contracted through Flatela (Pty) Ltd · B-BBEE Level 1 · CSD MAAA1734821.
+              Personal practice. SharePoint, EDRMS and Power Platform for Gauteng teams. Work contracted through FLATELA (PTY) LTD 2026/291183/07 · B-BBEE Level 1 EME · CSD MAAA1734821.
             </div>
           </div>
           <div className="flex flex-col items-start md:items-end gap-5">
@@ -552,20 +604,20 @@ export default function App() {
                 </a>
               ))}
             </div>
-            <div className="text-xs" style={{ opacity: 0.45 }}>© 2026 · Khwezi Flatela · Flatela (Pty) Ltd · All rights reserved</div>
+            <div className="text-xs" style={{ opacity: 0.45 }}>© 2026 · Khwezi Flatela · FLATELA (PTY) LTD 2026/291183/07 · All rights reserved</div>
           </div>
         </div>
       </footer>
 
       <a
-        href={WA}
+        href={WA_AUDIT}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="WhatsApp Khwezi Flatela"
+        aria-label="Book the Quick-Win Audit on WhatsApp"
         className="fixed bottom-5 right-5 z-50 rounded-full px-5 py-3.5 text-sm font-medium flex items-center gap-2 shadow-lg"
         style={{ background: '#111110', color: '#F2EDE3' }}
       >
-        WhatsApp
+        {AUDIT_PRICE} audit · WhatsApp
         <ArrowUpRight size={14} />
       </a>
     </div>
