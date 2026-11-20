@@ -130,7 +130,7 @@ const AutomationCalculator = () => {
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [expandedProject, setExpandedProject] = useState(null);
-  const { projects, services, capabilities, experience, stats, methodology, proof, trustClients } = getSiteData({ Layers, Smartphone, Cpu, Zap });
+  const { projects, services, packages, capabilities, experience, stats, methodology, proof, trustClients } = getSiteData({ Layers, Smartphone, Cpu, Zap });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -433,6 +433,24 @@ export default function App() {
                 </a>
               </div>
             ))}
+          </div>
+          <div className="mt-16">
+            <div className="flex flex-wrap items-baseline justify-between gap-3 mb-6">
+              <h3 className="display" style={{ fontSize: 'clamp(1.6rem, 2.4vw, 2.2rem)' }}>Fixed-price builds</h3>
+              <span className="text-xs uppercase" style={{ ...wide, color: 'var(--ink-faint)' }}>Rates from 1 January 2027 · excl. VAT</span>
+            </div>
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--rule)', background: 'var(--rule)' }}>
+              {packages.map((p) => (
+                <li key={p.name} className="p-6" style={{ background: 'var(--bone)' }}>
+                  <div className="text-sm mb-2" style={{ color: 'var(--ink-soft)' }}>{p.name}</div>
+                  <div className="display mono-num mb-1" style={{ fontSize: '1.6rem' }}>{p.price}</div>
+                  <div className="text-xs" style={{ color: 'var(--ink-faint)' }}>{p.note}</div>
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm mt-5 max-w-2xl" style={{ color: 'var(--ink-soft)' }}>
+              Final price is fixed in writing before work starts. 50% deposit, balance on sign-off. Hourly work from R700/h.
+            </p>
           </div>
           <AutomationCalculator />
         </div>
