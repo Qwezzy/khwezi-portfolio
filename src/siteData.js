@@ -58,7 +58,7 @@ export function getSiteData({ Layers, Smartphone, Cpu, Zap }) {
     {
       tag: 'Start here',
       name: 'AI Quick-Win Audit',
-      price: 'R3,500',
+      price: 'R4,500',
       cadence: 'One-week diagnostic, fixed fee',
       description:
         'A fixed-fee audit of your operations. Guaranteed deliverable: 3 to 5 prioritised opportunities with rough ROI, effort and next steps, ending with an implementation-phase recommendation.',
@@ -75,8 +75,8 @@ export function getSiteData({ Layers, Smartphone, Cpu, Zap }) {
     {
       tag: 'Next step',
       name: '30/60-Day Implementation Sprint',
-      price: 'Fixed quote after audit',
-      cadence: 'Fixed scope, 30 or 60 days',
+      price: 'From R48,000',
+      cadence: 'Fixed scope, 30 days. 60-day sprint from R90,000',
       description:
         'Builds the top one or two items from your audit inside your Microsoft 365 tenant. Scope and price are fixed before work starts, so there are no open-ended invoices.',
       includes: ['Fixed scope from the audit', 'Design and build in your tenant', 'User training', 'Documentation', '30-day support window'],
@@ -86,14 +86,25 @@ export function getSiteData({ Layers, Smartphone, Cpu, Zap }) {
     {
       tag: 'Ongoing',
       name: 'Retainer and Governance Support',
-      price: 'R8k to R20k',
-      cadence: 'Per month, reserved hours',
+      price: 'R8.5k to R30k',
+      cadence: 'Per month, 10 to 40 reserved hours',
       description:
-        'Monthly hours for optimisation, governance, training and ongoing AI and automation work. Support R450/h, specialist work R650/h.',
+        'Monthly hours for optimisation, governance, training and ongoing AI and automation work. Outside a retainer: support R700/h, build R900/h, specialist R1,150/h.',
       includes: ['Reserved monthly hours', 'Priority response', 'SharePoint and M365 governance', 'Iterative builds', 'Monthly review'],
       cta: 'Lock in capacity',
       featured: false,
     },
+  ];
+
+  const packages = [
+    { name: 'Power Automate workflow', price: 'From R12,000', note: 'One process, up to 5 steps' },
+    { name: 'M365 tenant setup and hardening', price: 'From R18,000', note: 'Up to 25 users, POPIA basics' },
+    { name: 'Custom MCP server', price: 'From R28,000', note: 'One system, documented' },
+    { name: 'AI agent', price: 'From R32,000', note: 'Grounded in your tenant data' },
+    { name: 'Power App', price: 'From R38,000', note: 'One core process' },
+    { name: 'SharePoint document management', price: 'From R45,000', note: 'Up to 50 users, with training' },
+    { name: 'SharePoint intranet', price: 'From R75,000', note: 'News, department sites, governance' },
+    { name: 'EDRMS and records design', price: 'From R120,000', note: 'File plan, retention, migration plan' },
   ];
 
   const capabilities = [
@@ -132,7 +143,7 @@ export function getSiteData({ Layers, Smartphone, Cpu, Zap }) {
     { num: '15+', label: 'Years across contracts' },
     { num: 'Motus', label: 'SharePoint Online rollout' },
     { num: '961', label: 'People served at Goscor' },
-    { num: 'R3,500', label: 'Quick-Win Audit entry' },
+    { num: 'R4,500', label: 'Quick-Win Audit entry' },
   ];
 
   const methodology = [
@@ -214,5 +225,5 @@ export function getSiteData({ Layers, Smartphone, Cpu, Zap }) {
     { name: 'Grandeur Listings', color: '#D4AF37', font: 'serif', weight: '400' },
   ];
 
-  return { projects, services, capabilities, experience, stats, methodology, proof, trustClients };
+  return { projects, services, packages, capabilities, experience, stats, methodology, proof, trustClients };
 }
